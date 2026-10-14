@@ -2,7 +2,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 if (!process.env.SITE_URL || !process.env.CLOUDFLARE_PAGES_PROJECT) {
-  console.error('Set SITE_URL and CLOUDFLARE_PAGES_PROJECT before deploying. See README.md.');
+  console.error('Set SITE_URL and CLOUDFLARE_PAGES_PROJECT before deploying. See docs/development-and-deployment.md.');
   process.exit(1);
 }
 let result = spawnSync(process.execPath, ['scripts/build.mjs'], { cwd: root, stdio: 'inherit' });
