@@ -6,7 +6,7 @@ for (const path of ['assets/site.js', 'assets/download.js', 'assets/download-con
   const result = spawnSync(process.execPath, ['--check', path], { cwd: root, stdio: 'inherit' });
   if (result.status !== 0) process.exit(1);
 }
-for (const path of ['index.html', 'download/index.html', 'docs/index.html']) {
+for (const path of ['index.html', 'download/index.html', 'docs/index.html', 'changelog/index.html']) {
   const html = await readFile(new URL('../' + path, import.meta.url), 'utf8');
   for (const pattern of [/<html lang="zh-CN">/, /<title>[^<]+<\/title>/, /name="description"/, /<main[ >]/]) if (!pattern.test(html)) throw new Error(`${path}: missing semantic or SEO metadata`);
   if ((html.match(/<h1[ >]/g) || []).length !== 1) throw new Error(`${path}: expected one h1`);

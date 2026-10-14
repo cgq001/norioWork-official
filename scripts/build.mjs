@@ -11,15 +11,15 @@ if (process.env.SITE_URL) {
 }
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-for (const path of ['index.html', 'download', 'docs', 'assets', '_headers', '_redirects', '404.html']) await cp(resolve(root, path), resolve(output, path), { recursive: true });
-const pages = ['/', '/download/', '/docs/'];
+for (const path of ['index.html', 'download', 'docs', 'changelog', 'assets', '_headers', '_redirects', '404.html']) await cp(resolve(root, path), resolve(output, path), { recursive: true });
+const pages = ['/', '/download/', '/docs/', '/changelog/'];
 if (base) {
   for (const path of pages) {
     const target = resolve(output, '.' + path, 'index.html');
     const html = await readFile(target, 'utf8');
     const url = base + path;
     const metadata = `<link rel="canonical" href="${url}"><meta property="og:url" content="${url}"><meta property="og:image" content="${base}/assets/social-card.png"><meta name="twitter:image" content="${base}/assets/social-card.png">`;
-    const data = { '@context': 'https://schema.org', '@type': 'WebSite', name: 'norio', url: base + '/', inLanguage: 'zh-CN', description: 'AI 对话与文档创作' };
+    const data = { '@context': 'https://schema.org', '@type': 'WebSite', name: 'norioWord', url: base + '/', inLanguage: 'zh-CN', description: 'AI 对话与文档创作' };
     await writeFile(target, html.replace('</head>', metadata + (path === '/' ? `<script type="application/ld+json">${JSON.stringify(data).replaceAll('<', '\\u003c')}</script>` : '') + '</head>'));
   }
   await writeFile(resolve(output, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(path => `<url><loc>${base + path}</loc></url>`).join('')}</urlset>`);
