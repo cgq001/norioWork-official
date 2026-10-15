@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { cp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,4 +31,20 @@ if (base) {
   await writeFile(resolve(output, '_headers'), (await readFile(resolve(output, '_headers'), 'utf8')) + '\n/*\n  X-Robots-Tag: noindex, nofollow\n');
   console.warn('SITE_URL unset: preview build has noindex headers and no sitemap. Set SITE_URL for production SEO.');
 }
-console.log('Built static site: dist/');
+// Content-addressed resources prevent new HTML from reusing a previous release's CSS/JS.
+const assetMap = new Map();
+for (const name of ['styles.css', 'site.js', 'download.js', 'download-config.js']) {
+  const content = await readFile(resolve(output, 'assets', name));
+  const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
+  const dot = name.lastIndexOf('.');
+  const versioned = name.slice(0, dot) + '.' + hash + name.slice(dot);
+  await writeFile(resolve(output, 'assets', versioned), content);
+  assetMap.set('/assets/' + name, '/assets/' + versioned);
+}
+for (const file of ['index.html', 'download/index.html', 'docs/index.html', 'changelog/index.html', '404.html']) {
+  const target = resolve(output, file);
+  let html = await readFile(target, 'utf8');
+  for (const [original, versioned] of assetMap) html = html.replaceAll(original, versioned);
+  await writeFile(target, html);
+}
+console.log('Built static site: dist/ (versioned CSS/JavaScript)');
