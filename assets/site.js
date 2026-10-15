@@ -39,3 +39,26 @@ if (releases.length) {
   window.addEventListener('resize', updateVersion);
   updateVersion();
 }
+
+// Reveal content once on entry. It stays readable if JavaScript or animation is unavailable.
+if (document.body.classList.contains('inner-page') && 'IntersectionObserver' in window) {
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const runningAnimations = new Set();
+  const entrances = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entrances.unobserve(entry.target);
+      if (motionPreference.matches || !entry.target.animate || entry.target.matches(':target') || entry.target.contains(document.activeElement)) return;
+      const animation = entry.target.animate([
+        { opacity: 0, transform: 'translateY(18px)' },
+        { opacity: 1, transform: 'translateY(0)' }
+      ], { duration: 620, easing: 'cubic-bezier(.2,.7,.2,1)' });
+      runningAnimations.add(animation);
+      animation.finished.catch(() => {}).finally(() => runningAnimations.delete(animation));
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.page-intro,.download-panel,.changelog-heading,.release-note,.release,.docs-content > h1,.docs-content > p,.docs-content > .note,.docs-content section').forEach(element => entrances.observe(element));
+  motionPreference.addEventListener('change', event => {
+    if (event.matches) runningAnimations.forEach(animation => animation.cancel());
+  });
+}

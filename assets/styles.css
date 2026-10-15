@@ -40,3 +40,29 @@ header nav{gap:28px}
 .release li::marker{color:#c8c8cf}
 @media(max-width:700px){header{padding:0 16px}header .logo{font-size:21px;gap:7px}header nav{gap:13px;font-size:11px}header .mark{width:24px;height:24px;font-size:22px;line-height:22px}.changelog-page{padding:48px 20px 65px}.changelog-heading{margin-bottom:35px}.changelog-heading h1{font-size:30px}.changelog-layout{grid-template-columns:1fr;gap:24px}.version-sidebar{top:66px;z-index:5;background:#ffffffed;backdrop-filter:blur(12px);margin:0 -20px;padding:10px 20px;border-bottom:1px solid #eee}.version-sidebar nav{display:flex;overflow:auto;gap:8px}.version-label{display:none}.version-sidebar a{flex-shrink:0;border:1px solid #e9e9ed;border-radius:8px;padding:8px 14px;font-size:12px}.version-sidebar a[aria-current="location"]{border-color:#ffb5bb}.version-sidebar time{font-size:10px}.release{scroll-margin-top:170px;padding-top:28px}.release-title h2{font-size:24px}.release-lead{font-size:14px}.release ul{font-size:13px}.footerlinks{gap:12px}footer .left>span{font-size:9px}}
 @media(max-width:360px){header nav{gap:8px;font-size:10px}header .logo{font-size:18px}}
+
+/* Secondary pages share the homepage's warm background, fading into white. */
+body.inner-page{position:relative;isolation:isolate;background:#fff}
+body.inner-page::before{content:'';position:absolute;z-index:-1;inset:0 0 auto;height:820px;pointer-events:none;background:radial-gradient(ellipse at 10% 26%,#ffb69f40,transparent 58%),radial-gradient(ellipse at 92% 20%,#ffd0ab57,transparent 55%),linear-gradient(180deg,#fff 2%,#fff7f3 25%,#fffaf7 65%,#fff 100%)}
+body.inner-page::after{content:'';position:absolute;z-index:-1;inset:75px 0 auto;height:540px;pointer-events:none;background-image:radial-gradient(#be74562b .65px,transparent .8px);background-size:4px 4px;mask-image:linear-gradient(transparent,#000 30%,transparent);opacity:.4}
+.inner-page header{background:#ffffffd9;backdrop-filter:blur(18px)}
+.inner-page header.scrolled{background:#fffffff5}
+.inner-page .changelog-page{background:none}
+.inner-page .page-intro{padding-top:84px;padding-bottom:42px}
+.inner-page .download-panel{background:#ffffffed;border-color:#ece1dc;box-shadow:0 18px 60px #a3643f0a,0 2px 4px #00000004}
+.inner-page .platform-tabs{background:#ffffffbd;border-color:#eee5e1}
+.inner-page .platform-tabs button[aria-selected="true"]{background:#fff0e9;color:#493f3c}
+.inner-page .download-note{line-height:1.9;padding:18px 24px;color:#9a8980}
+.inner-page .docs-layout{margin-top:0;padding-top:70px}
+.inner-page .docs-content{padding:26px 32px;background:#ffffffcf;border:1px solid #f0e7e2;border-radius:16px;box-shadow:0 10px 36px #a3643f04}
+.inner-page .docs-content h1{margin-top:0}
+.inner-page .docs-content section:last-child{margin-bottom:10px}
+.inner-page .docs-sidebar{padding-top:14px}
+.inner-page .docs-sidebar strong{font-size:14px}
+.inner-page .docs-sidebar a{transition:color .2s,transform .2s}
+.inner-page .docs-sidebar a:hover{color:#ef3945;transform:translateX(3px)}
+.inner-page .version-sidebar a:not([aria-current]):hover{background:#fff9f6}
+.inner-page .release-note{background:#ffffffb8;border:1px solid #f0e3dc;border-radius:8px;padding:12px 16px;color:#99887f}
+.inner-page footer{background:#fff}
+@media(max-width:700px){body.inner-page::before{height:650px}body.inner-page::after{height:420px}.inner-page .docs-layout{padding-top:30px}.inner-page .docs-content{padding:24px 20px}.inner-page .docs-sidebar{padding-top:0}.inner-page .page-intro{padding-top:55px;padding-bottom:30px}}
+@media(prefers-reduced-motion:reduce){.inner-page .docs-sidebar a:hover{transform:none}}
