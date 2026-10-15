@@ -66,3 +66,10 @@ body.inner-page::after{content:'';position:absolute;z-index:-1;inset:75px 0 auto
 .inner-page footer{background:#fff}
 @media(max-width:700px){body.inner-page::before{height:650px}body.inner-page::after{height:420px}.inner-page .docs-layout{padding-top:30px}.inner-page .docs-content{padding:24px 20px}.inner-page .docs-sidebar{padding-top:0}.inner-page .page-intro{padding-top:55px;padding-bottom:30px}}
 @media(prefers-reduced-motion:reduce){.inner-page .docs-sidebar a:hover{transform:none}}
+
+/* Supplied horizontal brand artwork: preserve its native aspect ratio. */
+.logo .brand-logo{display:block;width:170px;height:auto;max-width:100%;flex-shrink:0}
+header .logo{display:flex;align-items:center;letter-spacing:normal}
+footer .logo .brand-logo{width:140px}
+@media(max-width:700px){header .logo .brand-logo{width:140px}footer .logo .brand-logo{width:125px}}
+@media(max-width:360px){header .logo .brand-logo{width:112px}}
