@@ -90,3 +90,7 @@ npm run deploy
 ## 更新后仍看到旧样式
 
 构建现在为 CSS 与 JavaScript 生成内容哈希文件名，HTML 使用对应版本地址；HTML 设置 `Cache-Control: no-cache` 以在后续访问时重新验证。无需手工修改资源版本。若首次升级后仍显示旧版，先确认 Pages 最新生产部署提交号，再强制刷新一次。全量缓存规则或自定义域名前的其他代理可能覆盖 Pages 缓存头，应单独检查。
+
+### SITE_URL 格式
+
+建议填写 `https://work.norio.top`。构建也接受纯域名 `work.norio.top`，自动补全 `https://` 并去除首尾空白。不要填写页面路径或 HTTP 地址。Cloudflare 修改变量后需要重新部署。

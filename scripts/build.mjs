@@ -5,8 +5,14 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const output = resolve(root, 'dist');
 let base;
-if (process.env.SITE_URL) {
-  const url = new URL(process.env.SITE_URL);
+const siteInput = process.env.SITE_URL?.trim();
+if (siteInput) {
+  let url;
+  try {
+    url = new URL(siteInput.includes('://') ? siteInput : 'https://' + siteInput);
+  } catch {
+    throw new Error('Invalid SITE_URL. Use a domain such as work.norio.top or https://work.norio.top.');
+  }
   if (url.protocol !== 'https:' || url.pathname !== '/' || url.search || url.hash || url.username || url.password) throw new Error('SITE_URL must be an HTTPS origin, without a path, query or credentials');
   base = url.origin;
 }
