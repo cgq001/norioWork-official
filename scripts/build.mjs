@@ -26,7 +26,7 @@ if (base) {
     const html = await readFile(target, 'utf8');
     const url = base + path;
     const metadata = `<link rel="canonical" href="${url}"><meta property="og:url" content="${url}"><meta property="og:image" content="${base}/assets/social-card.png"><meta name="twitter:image" content="${base}/assets/social-card.png">`;
-    const data = { '@context': 'https://schema.org', '@type': 'WebSite', name: 'norioWord', url: base + '/', inLanguage: 'zh-CN', description: 'AI 对话与文档创作' };
+    const data = { '@context': 'https://schema.org', '@type': 'WebSite', name: '小蓝办公', alternateName: 'norioWork', url: base + '/', inLanguage: 'zh-CN', description: '在桌面端使用 AI 对话、文档编辑、知识库与技能完成办公创作' };
     await writeFile(target, html.replace('</head>', metadata + (path === '/' ? `<script type="application/ld+json">${JSON.stringify(data).replaceAll('<', '\\u003c')}</script>` : '') + '</head>'));
   }
   await writeFile(resolve(output, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(path => `<url><loc>${base + path}</loc></url>`).join('')}</urlset>`);
@@ -39,7 +39,7 @@ if (base) {
 }
 // Content-addressed resources prevent new HTML from reusing a previous release's CSS/JS.
 const assetMap = new Map();
-for (const name of ['styles.css', 'site.js', 'download.js', 'download-config.js', 'norioWork-horizontal.svg']) {
+for (const name of ['styles.css', 'site.js', 'download.js', 'download-config.js', 'brand.webp', 'app-icon.png', 'product/ppt-ai.webp', 'product/excel-ai.webp', 'product/smart-ai.webp']) {
   const content = await readFile(resolve(output, 'assets', name));
   const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
   const dot = name.lastIndexOf('.');

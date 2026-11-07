@@ -22,5 +22,5 @@ function selectPlatform(key, focus = false) {
   platform.packages.slice(1).forEach(item => { const row = document.createElement('div'); row.className = 'download-row'; const label = document.createElement('span'); label.textContent = item.label; row.append(label, downloadLink(item, false)); panel.append(row); });
 }
 tabs.forEach((tab, index) => { tab.addEventListener('click', () => selectPlatform(tab.dataset.platform)); tab.addEventListener('keydown', event => { let next; if (event.key === 'ArrowRight') next = (index + 1) % tabs.length; if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length; if (event.key === 'Home') next = 0; if (event.key === 'End') next = tabs.length - 1; if (next !== undefined) { event.preventDefault(); selectPlatform(tabs[next].dataset.platform, true); } }); });
-if (config.version) { document.querySelector('.page-intro h1').textContent = 'norioWord ' + config.version; document.getElementById('release-info').textContent = '稳定版发布' + (config.publishedAt ? ' · ' + config.publishedAt : ''); }
+if (config.version) { document.querySelector('.page-intro h1').textContent = '小蓝办公 ' + config.version; document.getElementById('release-info').textContent = '公开版本' + (config.publishedAt ? ' · ' + config.publishedAt : ''); }
 selectPlatform('windows');
