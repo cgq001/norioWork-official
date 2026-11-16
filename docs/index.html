@@ -1,15 +1,5 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>产品文档与入门指南 — 小蓝办公</title><meta name="description" content="了解小蓝办公的模型配置、Word、Excel、PPT、智能文档、知识库、技能与消息通道，按步骤开始创作。"><meta name="theme-color" content="#f8faff"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="产品文档与入门指南 — 小蓝办公"><meta property="og:description" content="了解小蓝办公的模型配置、Word、Excel、PPT、智能文档、知识库、技能与消息通道，按步骤开始创作。"><meta property="og:site_name" content="小蓝办公"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/assets/app-icon.png" type="image/png"><link rel="stylesheet" href="/assets/styles.css"><script defer src="/assets/site.js"></script></head><body class="inner-page">
-<header class="site-header">
-  <div class="site-nav">
-    <a class="brand" href="/" aria-label="小蓝办公首页"><img src="/assets/brand.webp" width="360" height="120" alt="小蓝办公"></a>
-    <nav class="nav-links" aria-label="主导航">
-      <a href="/#products">编辑器</a>
-      <a href="/#features">AI 协作</a>
-      <a href="/changelog/">更新日志</a>
-    </nav>
-    <a class="button button--primary nav-download" href="/download/">下载客户端 <span aria-hidden="true">↓</span></a>
-  </div>
-</header>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>产品文档与入门指南 — 小蓝办公</title><meta name="description" content="了解小蓝办公的模型配置、Word、Excel、PPT、智能文档、知识库、技能与消息通道，按步骤开始创作。"><meta name="theme-color" content="#f8faff"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="产品文档与入门指南 — 小蓝办公"><meta property="og:description" content="了解小蓝办公的模型配置、Word、Excel、PPT、智能文档、知识库、技能与消息通道，按步骤开始创作。"><meta property="og:site_name" content="小蓝办公"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/assets/app-icon.png" type="image/png"><link rel="stylesheet" href="/assets/styles.css"><link rel="stylesheet" href="/assets/official.css"><script defer src="/assets/site.js"></script></head><body class="inner-page"><header class="site-header"><div class="site-nav shell"><a class="brand" href="/" aria-label="小蓝办公 norioWork 首页"><img src="/assets/app-icon.png" width="34" height="34" alt=""><span>norioWork</span></a><nav class="simple-nav" aria-label="主导航"><a class="home-link" href="/">首页</a><a class="button nav-download" href="/download/">下载 <img src="/assets/icons/arrow-right.svg" alt="" width="16" height="16"></a></nav></div></header>
+
 
 <main class="docs-layout">
   <aside class="docs-sidebar">
@@ -18,6 +8,8 @@
       <a href="#overview">认识小蓝办公</a>
       <a href="#start">开始创作</a>
       <a href="#editors">四款编辑器</a>
+      <a href="#image-to-excel">图表转 Excel</a>
+      <a href="#photo-to-word">拍照转 Word</a>
       <a href="#conversation">在文档里和 AI 对话</a>
       <a href="#materials">管理和查找资料</a>
       <a href="#skills">技能、通道与任务</a>
@@ -58,9 +50,31 @@
       <h3>Excel · .xlsx</h3>
       <p>整理预算、待办清单和明细数据。选定工作表或单元格区域后，可以要求 AI 分类、汇总、补公式或调整选区格式。</p>
       <h3>PPT · .pptx</h3>
-      <p>把资料整理成汇报大纲、幻灯片和配图。生成后可调整文字、图形和布局，也可以只修改当前页。</p>
+      <p>把资料整理成汇报大纲、幻灯片和配图。生成后可调整文字、图形和布局，也可以只修改当前页。创作时可在对话中选择本轮风格；也可使用「智能创作」让 AI 自由设计。在「设置 → PPT 创作风格」中浏览封面和内页预览，或管理自定义风格。</p>
       <h3>智能文档 · .nordox</h3>
       <p>适合项目笔记、手册与长资料整理。用标题、列表、表格和图片搭建结构，边看内容边与 AI 完善各章节。</p>
+    </section>
+
+    <section id="image-to-excel">
+      <h2>把图片里的图表整理成 Excel</h2>
+      <ol>
+        <li>连接支持识图和工具调用的模型，把清晰的图表截图或表格图片作为附件带入对话。</li>
+        <li>说明需要保留的分类、表头、数值和单位，要求生成 Excel 文件；也可以说明要新增的公式或汇总列。</li>
+        <li>打开生成的表格，核对识别数值，再继续修改单元格、公式和格式。</li>
+      </ol>
+      <div class="note">“把这张图表中明确标注的数据整理成 Excel，保留分类、数值和单位。无法确认的数值请标记待核对，不要补造数据。”</div>
+      <p>图表未标注的数值可能需要估读，模糊文字与复杂合并表头也可能影响识别。请核对原图；不能从纯文本 OCR 结果推断图形中未提取的数据。</p>
+    </section>
+
+    <section id="photo-to-word">
+      <h2>把文字照片整理成 Word</h2>
+      <ol>
+        <li>拍下清晰的文字，尽量让纸面平整、光线均匀，然后上传照片。</li>
+        <li>使用支持识图的模型，或先在模型设置中配置可用的 OCR。非识图模型可使用图片中提取出的文字。</li>
+        <li>要求保留原意并整理标题、段落和清单，生成 Word 文档；打开后校对并继续排版。</li>
+      </ol>
+      <div class="note">“识别照片里的文字，保留原意，整理成有标题、段落和待办清单的 Word 文档。无法辨认的文字标记为待确认。”</div>
+      <p>这项能力侧重文字识别与文档整理，不保证原图版式逐像素还原。姓名、日期、金额、公式和专有名词应重点核对。</p>
     </section>
 
     <section id="conversation">
@@ -104,17 +118,11 @@
       <p>使用包含文件关联功能的 Windows 安装包后，右键点击 .docx、.xlsx、.pptx 或 .nordox，选择「用小蓝办公打开」。Windows 11 可在「显示更多选项」中查找。文件会作为副本导入编辑。</p>
       <h3>资料会发给模型吗？</h3>
       <p>工作文件在客户端中管理。使用联网模型、联网搜索或消息通道时，完成请求所需的数据会发送给相应服务。处理敏感资料前，请核对所选模型、通道和引用范围。</p>
-      <h3>网页里的演示能保存文档吗？</h3>
-      <p>首页展示的是交互示意。创建、编辑与保存文档请使用桌面客户端。</p>
+      <h3>官网里的演示能保存文档吗？</h3>
+      <p>首页的编辑器演示是客户端实拍截图，PPT 风格预览取自客户端内置素材。创建、编辑与保存文档请使用桌面客户端。</p>
     </section>
   </article>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <a class="brand" href="/" aria-label="小蓝办公首页"><img src="/assets/brand.webp" width="360" height="120" alt="小蓝办公"></a>
-    <p>小蓝办公 · AI 桌面工作空间</p>
-    <nav aria-label="页脚导航"><a href="/#products">编辑器</a><a href="/changelog/">更新日志</a><a href="/download/">下载</a></nav>
-  </div>
-</footer>
-</body></html>
+
+<footer class="site-footer"><div class="footer-inner shell"><a class="brand" href="/" aria-label="小蓝办公 norioWork 首页"><img src="/assets/app-icon.png" width="28" height="28" alt=""><span>norioWork</span></a><p>© 2026 小蓝办公 norioWork</p><nav aria-label="页脚导航"><a href="/">首页</a><a href="/download/">下载</a></nav></div></footer></body></html>

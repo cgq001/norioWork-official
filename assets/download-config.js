@@ -1,10 +1,14 @@
-// 仅填写真实版本和已发布的 HTTPS 安装包 URL；null 表示未发布。
+// Windows 使用 GitCode 最新正式版固定入口，发新版后无需修改官网。
+// 入口为发行页，不是固定版本安装包；不展示可能过期的版本号、日期和文件大小。
+// 其他安装包 URL 为 null 表示未发布。
 window.NORIO_DOWNLOADS = {
-  version: "0.8.5",
-  publishedAt: "2026-11-07",
+  version: null,
+  publishedAt: null,
+  releaseUrl: "https://gitcode.com/cgq2100/norioWork/releases/latest",
+  domesticReleases: "https://gitcode.com/cgq2100/norioWork/releases",
   platforms: {
     windows: { label: "Windows", packages: [
-      { label: "Windows 标准版 · x64", url: "https://github.com/cgq001/norioWork/releases/download/V0.8.5/NorioWork-0.8.5-setup.exe" },
+      { label: "Windows 标准版 · x64", url: "https://gitcode.com/cgq2100/norioWork/releases/latest", note: "前往 GitCode 最新正式版页面，选择安装包下载。" },
       { label: "Windows 便携版 · x64", url: null },
       { label: "Windows 标准版 · ARM64", url: null }
     ] },

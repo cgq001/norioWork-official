@@ -6,13 +6,19 @@
 
 ## 页面与内容
 
-- `/`：产品介绍、PPT / Excel / 智能文档实拍轮播、核心能力和下载入口。
+- `/`：按用户指定 Octop 参考适配的居中首屏、暖色颗粒、大幅真实界面、三步上手、功能侧栏切换、创作风格、FAQ 与下载入口。
 - `/download/`：独立下载页，Windows/macOS/Linux 标签，支持键盘左右箭头、Home、End 切换。
 - `/changelog/`：左侧版本目录，右侧更新内容，随滚动高亮当前版本；以公开发布记录为准。
 - `/docs/`：独立文档页，包含模型配置、编辑器、资料管理、技能、通道、定时任务和常见问题。
 - `404.html`：真正的 404 页面，不使用 SPA 全站回退。
 
-首页实拍使用客户端和演示内容，轮播支持键盘操作与暂停。产品文档可通过原地址访问，主导航集中展示产品和下载。下载页和更新日志按公开发布记录维护。支持减少动态效果的系统设置。
+首页以 https://octop.cloud/ 的实际电脑/手机截图为当前视觉基准，采用居中标题与品牌形象、黑色按钮、暖色颗粒背景和大幅真实客户端界面。中段包括三步上手标签切换、PPT 专题、电脑功能侧栏和手机叠放卡片，保留复制指令、放大图片和原生 FAQ。用户明确选择了这一参考，前面的配色探索不再作为当前视觉方向。
+
+首页仅加载 `assets/official.css`，完整替换旧首页样式。内页保留 `assets/styles.css` 的文档与下载内容布局，并用 `official.css` 统一品牌、导航与页脚；构建为样式和脚本生成内容哈希。`assets/styles/` 保存客户端内置 PPT 风格预览；`assets/demos/` 保存图表、文字照片演示素材及 AI 生成的 PPT 封面配图。演示图表与网页表格的数据保持一致，照片的原文与整理结果保留一致事实。
+
+当前视觉参考（2026-11-16）：https://octop.cloud/ 。实现只借鉴版式与呈现方式；小蓝的角色、图标、截图、功能与下载均使用自己的素材和真实内容。没有复制对方的 Star 数、开源承诺、桌宠功能或安装命令。完整对照与功能 QA 见项目根目录 design-qa.md。
+
+下载配置与更新日志已按 2026-11-16 查询的 GitHub 最新公开发行版 `v0.8.12` 更新（2026-11-12 发布），保留国内 GitCode 入口。客户端源码的开发版本不直接用作官网公开下载版本。发布来源：<https://github.com/cgq001/norioWork/releases/tag/v0.8.12>。
 
 ## 本地开发
 
@@ -34,7 +40,11 @@ npm run preview     # 本地检查 dist/ 构建结果
 
 ## 下载配置
 
-编辑 `assets/download-config.js`：填写真实 `version`、`publishedAt` 和各安装包的 HTTPS `url`。未发布的包保留 `null`，页面会显示“待发布”，不生成无效下载链接。系统标签用于展示未来下载位置，不代表所有平台已发布。
+当前 Windows 主按钮固定指向 `https://gitcode.com/cgq2100/norioWork/releases/latest`，由 GitCode 跳转到最新正式发行版页面，访客在该页面选择安装包。以后发布新的正式版本无需改官网链接。预发布不视为最新正式版；2026-11-16 实测入口跳转到 v0.8.12，v0.8.15 在 GitCode 中标为预发布。
+
+当前不在官网写死版本号、发布日期和文件大小，避免新版本发布后信息过期。`version`、`publishedAt` 保留 `null`，Windows 配置使用固定 latest 地址与发行页下载说明；无 JavaScript 时也指向同一 GitCode 入口。下方的历史版本链接仍指向完整发行列表。无需凭证、浏览器请求 API 或服务端解析。
+
+下载配置位于 `assets/download-config.js`。当前 latest 模式无需填写版本号、日期和大小；仅在需要固定某个已验证版本时填写这些元数据及安装包 HTTPS 直链。未发布的包保留 `null`，页面会显示“待发布”，不生成无效下载链接。系统标签用于展示未来下载位置，不代表所有平台已发布。
 
 安装包应放在产品的发布平台或 Cloudflare R2 等文件存储，不建议直接提交到网站 Git 仓库。仅使用公开安装包 URL，不要填凭证、私有签名密钥或其他秘密。正式发布前核对平台名称、架构与文件链接。
 
@@ -81,11 +91,27 @@ npm run deploy
 - 仅包含实际页面的 `sitemap.xml`；
 - 指向 sitemap 的 `robots.txt`。
 
-没有编造评分、价格或软件版本结构化数据。更换域名后重新构建；上线后可在搜索引擎站长平台提交 sitemap。`assets/social-card.png` 是默认分享图，可换成正式品牌素材。
+没有编造评分、价格或软件版本结构化数据。更换域名后重新构建；上线后可在搜索引擎站长平台提交 sitemap。`assets/social-card.png` 与 `assets/social-card.svg` 已同步小蓝办公品牌、首页主张和 PPT 成果示意。
 
-## 验证记录
+## 当前首页调整（2026-11-16，Octop 明确参考版）
 
-已在 Chromium 验证：首页编辑器与修改示例，独立页面跳转，系统标签键盘切换，未发布包状态和配置真实 URL 后的链接生成；三个页面在 1440、768、390 像素宽度下无横向溢出。Node 检查与预览/生产构建通过。Cloudflare 上传和实际产品安装包尚未验证。
+最新微调：用户指定首屏使用白色到橘红色的平滑渐变。首屏现使用 CSS `linear-gradient`，已删除 `.intro-backdrop` 图片与样式；下述颗粒首屏说明为此前版本记录。其他区块的素材不变，分享截图已同步。
+
+按用户最新提供的 Octop 链接与截图，恢复暖色颗粒首屏、48px 居中标题、80px 标题角色、黑白双按钮和浮层产品界面。导航继续仅保留首页、下载；「了解功能」跳转首页能力区。产品预览图宽 1148px，并适配高屏底部对齐；2560×1270 下界面顶部约 671px。手机 390×844 下产品图顶部约 666px，浮层隐藏。
+
+正文继续介绍 PPT、图表转 Excel、拍照转 Word 和生成后编辑，采用白底与暖色展示图，移除上一版深绿色区域。原有 ImageGen V3 颗粒背景复用，未新增生成图；完整生成记录见 previous-design-qa.md，最新视觉与交互检查见项目根目录 design-qa.md。社交分享图已改为本版真实页面截图。
+
+## 上一版首页调整（2026-11-16，精简导航版）
+
+以下为上一版历史记录。顶部与页脚只展示「首页」「下载」，所有首页下载入口均跳转 `/download/`。旧指南与日志路径保留兼容，不再从主站导航推广。
+
+首页叙事顺序：产品首屏 → PPT、图表转 Excel、拍照转 Word 三个特色场景 → 生成后继续编辑 → 下载。采用暖白、灰绿、深绿编辑区；移除颗粒背景、标题吉祥物、浮动说明卡、安装教程、完整风格图库及 FAQ。品牌图标与已有客户端截图保留。PPT、Excel、文档预览支持点击与方向键切换，图片可放大并用 Escape 关闭。手机顶部直接显示首页和下载，无折叠菜单。
+
+本轮没有新生成图像。此前的 AI 海岸摄影与颗粒背景作为历史素材保留，当前首页不引用。历史生成记录存于本文件与 `docs/design-evidence/previous-design-qa.md`。当前验收见根目录 `design-qa.md`。
+
+## 历史验证记录
+
+2026-11-16：新版已在 1280×720 和 390×844 视口与参考同图比较；主标题 48px/28px，与参考同类系统字体栈；首屏按钮和界面位置已对齐。验证上手步骤、上下方向键功能切换、指令复制、图片放大/Escape、手机菜单及下载、FAQ 单项展开。320px、768px 无横向溢出，浏览器控制台无错误或警告。源码中的对照截图与开发记录不进入官网构建。
 
 ## 更新后仍看到旧样式
 
@@ -94,3 +120,20 @@ npm run deploy
 ### SITE_URL 格式
 
 建议填写 `https://work.norio.top`。构建也接受纯域名 `work.norio.top`，自动补全 `https://` 并去除首尾空白。不要填写页面路径或 HTTP 地址。Cloudflare 修改变量后需要重新部署。
+
+## 本次设计与配图记录
+
+- 设计：明亮白底、蓝色主按钮、浅紫/浅绿/浅蓝能力卡片，以及 PPT/Excel/Word 成果组合。首页独立使用 `assets/official.css`。
+- 最终配图：`D:/work/office/norioWork-official/assets/demos/coastal-architecture.webp`。用于示例 PPT 的封面摄影区域，属于 AI 生成素材，不是真实地点或客户案例。源 PNG 保留在 Codex 生成图片目录，项目使用 WebP 优化传输。
+- 生成方式：ImageGen 内置工具；未使用 CLI 或自备 API Key。
+- 最终生成提示词（原文）：
+
+> Use case: photorealistic-natural. Asset type: a landscape photograph used inside an example presentation cover on a refined AI office software website. Create an exceptionally beautiful high-end editorial architecture photograph, wide 3:2 composition: a sculptural contemporary white concrete art museum on a rocky Mediterranean coast, calm turquoise sea, a few deep green umbrella pine trees, warm ivory stone, clear very pale blue sky. The building has elegantly curved arches and long horizontal terraces, photographed from slightly elevated perspective, small in frame on the right half, with richly textured sea and cliff in the foreground. Quiet, optimistic, sophisticated natural daylight, sophisticated soft warm color grading, realistic architectural photography, pristine fine detail. No people, no letters, no captions, no logos, no UI, no watermarks. This will be cropped as a presentation's right-side photographic panel, so make the whole scene beautifully composed without relying on text.
+
+## 上一版参考还原与背景素材
+
+- 视觉验收：项目根目录 `design-qa.md`，`final result: passed`。同图对照在 `docs/design-evidence/`。
+- 上一版背景：`assets/reference/norio-hero-grain-v3.webp`，1672 × 941。通过内置 ImageGen 生成/编辑，没有直接复制 Octop 官网背景；完整最终提示词和原始文件位置在 QA 报告中。
+- 上一版首页直接展示真实 PPT 客户端截图，配合产品已有品牌形象和文档图标。`assets/icons/` 的线性图标来自 Lucide，许可证一并保留。
+- 上一版使用海岸建筑 AI 配图展示 PPT 场景。前节保留该素材的生成记录。
+- 构建只发布 `docs/index.html`，不复制 `docs/design-evidence/`、开发说明或项目根目录的 QA 报告。

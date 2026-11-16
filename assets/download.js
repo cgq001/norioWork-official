@@ -17,8 +17,22 @@ function selectPlatform(key, focus = false) {
   panel.replaceChildren();
   const main = document.createElement('div'); main.className = 'download-main';
   main.append(downloadLink(platform.packages[0], true));
+  if (platform.packages[0].size && validUrl(platform.packages[0].url)) {
+    const size = document.createElement('p'); size.className = 'notice';
+    size.textContent = platform.packages[0].size + ' · 标准安装包'; main.append(size);
+  }
+  if (platform.packages[0].note && validUrl(platform.packages[0].url)) {
+    const note = document.createElement('p'); note.className = 'notice';
+    note.textContent = platform.packages[0].note; main.append(note);
+  }
   if (!validUrl(platform.packages[0].url)) { const note = document.createElement('p'); note.className = 'notice'; note.textContent = '安装包尚未发布，敬请期待。'; main.append(note); }
   panel.append(main);
+  if (key === 'windows' && validUrl(config.domesticReleases)) {
+    const row = document.createElement('div'); row.className = 'download-row';
+    const label = document.createElement('span'); label.textContent = '历史版本 · GitCode';
+    const link = document.createElement('a'); link.href = config.domesticReleases; link.textContent = '查看全部版本 ↗';
+    row.append(label, link); panel.append(row);
+  }
   platform.packages.slice(1).forEach(item => { const row = document.createElement('div'); row.className = 'download-row'; const label = document.createElement('span'); label.textContent = item.label; row.append(label, downloadLink(item, false)); panel.append(row); });
 }
 tabs.forEach((tab, index) => { tab.addEventListener('click', () => selectPlatform(tab.dataset.platform)); tab.addEventListener('keydown', event => { let next; if (event.key === 'ArrowRight') next = (index + 1) % tabs.length; if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length; if (event.key === 'Home') next = 0; if (event.key === 'End') next = tabs.length - 1; if (next !== undefined) { event.preventDefault(); selectPlatform(tabs[next].dataset.platform, true); } }); });

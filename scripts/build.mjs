@@ -18,14 +18,17 @@ if (siteInput) {
 }
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-for (const path of ['index.html', 'download', 'docs', 'changelog', 'assets', '_headers', '_redirects', '404.html']) await cp(resolve(root, path), resolve(output, path), { recursive: true });
+for (const path of ['index.html', 'download', 'changelog', 'assets', '_headers', '_redirects', '404.html']) await cp(resolve(root, path), resolve(output, path), { recursive: true });
+// 产品指南需要发布；开发记录和竞品对照截图只留在源码，避免进入官网产物。
+await mkdir(resolve(output, 'docs'), { recursive: true });
+await cp(resolve(root, 'docs/index.html'), resolve(output, 'docs/index.html'));
 const pages = ['/', '/download/', '/docs/', '/changelog/'];
 if (base) {
   for (const path of pages) {
     const target = resolve(output, '.' + path, 'index.html');
     const html = await readFile(target, 'utf8');
     const url = base + path;
-    const metadata = `<link rel="canonical" href="${url}"><meta property="og:url" content="${url}"><meta property="og:image" content="${base}/assets/social-card.png"><meta name="twitter:image" content="${base}/assets/social-card.png">`;
+    const metadata = `<link rel="canonical" href="${url}"><meta property="og:url" content="${url}"><meta property="og:image" content="${base}/assets/social-card.jpg"><meta name="twitter:image" content="${base}/assets/social-card.jpg">`;
     const data = { '@context': 'https://schema.org', '@type': 'WebSite', name: '小蓝办公', alternateName: 'norioWork', url: base + '/', inLanguage: 'zh-CN', description: '在桌面端使用 AI 对话、文档编辑、知识库与技能完成办公创作' };
     await writeFile(target, html.replace('</head>', metadata + (path === '/' ? `<script type="application/ld+json">${JSON.stringify(data).replaceAll('<', '\\u003c')}</script>` : '') + '</head>'));
   }
@@ -39,7 +42,7 @@ if (base) {
 }
 // Content-addressed resources prevent new HTML from reusing a previous release's CSS/JS.
 const assetMap = new Map();
-for (const name of ['styles.css', 'site.js', 'download.js', 'download-config.js', 'brand.webp', 'app-icon.png', 'product/ppt-ai.webp', 'product/excel-ai.webp', 'product/smart-ai.webp']) {
+for (const name of ['styles.css', 'official.css', 'site.js', 'download.js', 'download-config.js', 'brand.webp', 'app-icon.png', 'product/ppt-ai.webp', 'product/excel-ai.webp', 'product/smart-ai.webp']) {
   const content = await readFile(resolve(output, 'assets', name));
   const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
   const dot = name.lastIndexOf('.');

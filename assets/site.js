@@ -1,72 +1,50 @@
-const carousel = document.querySelector('[data-carousel]');
-if (carousel) {
-  const tabs = [...carousel.querySelectorAll('[role="tab"]')];
-  const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
-  const slides = carousel.querySelector('[data-carousel-slides]');
-  const counter = carousel.querySelector('[data-slide-count]');
-  const toggle = carousel.querySelector('[data-carousel-toggle]');
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  let current = 0;
-  let playing = !reducedMotion.matches;
-  let inView = false;
-  let pointerOver = false;
-  let timer;
-
-  function updateTimer() {
-    clearTimeout(timer);
-    const rotate = playing && !reducedMotion.matches && inView && !pointerOver && !document.hidden && !carousel.contains(document.activeElement);
-    slides.setAttribute('aria-live', playing ? 'off' : 'polite');
-    toggle.disabled = reducedMotion.matches;
-    const active = playing && !reducedMotion.matches;
-    const label = active ? '暂停自动切换' : '开始自动切换';
-    toggle.textContent = active ? 'Ⅱ' : '▶';
-    toggle.setAttribute('aria-label', label);
-    toggle.title = label;
-    if (rotate) timer = setTimeout(() => selectSlide(current + 1), 7800);
-  }
-
-  function selectSlide(index, manual = false, focus = false) {
-    current = (index + tabs.length) % tabs.length;
-    if (manual) playing = false;
+// 所有切换只展示固定示例，官网不发送资料、调用模型或伪装执行生成。
+function bindTabs(tabs, onSelect) {
+  function activate(index, focus = false) {
+    const selected = (index + tabs.length) % tabs.length;
     tabs.forEach((tab, i) => {
-      const active = i === current;
-      tab.setAttribute('aria-selected', String(active));
-      tab.tabIndex = active ? 0 : -1;
-      panels[i].hidden = !active;
+      tab.setAttribute('aria-selected', String(i === selected));
+      tab.tabIndex = i === selected ? 0 : -1;
     });
-    counter.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(tabs.length).padStart(2, '0');
-    if (focus) tabs[current].focus();
-    updateTimer();
+    onSelect(tabs[selected]);
+    if (focus) tabs[selected].focus();
   }
-
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('click', () => selectSlide(i, true));
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(index));
     tab.addEventListener('keydown', event => {
-      const next = { ArrowLeft: i - 1, ArrowRight: i + 1, Home: 0, End: tabs.length - 1 }[event.key];
+      const next = { ArrowLeft: index - 1, ArrowRight: index + 1, ArrowUp: index - 1, ArrowDown: index + 1, Home: 0, End: tabs.length - 1 }[event.key];
       if (next === undefined) return;
       event.preventDefault();
-      selectSlide(next, true, true);
+      activate(next, true);
     });
   });
-  carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => selectSlide(current - 1, true));
-  carousel.querySelector('[data-carousel-next]').addEventListener('click', () => selectSlide(current + 1, true));
-  toggle.addEventListener('click', () => { playing = !playing; updateTimer(); });
-  carousel.addEventListener('focusin', updateTimer);
-  carousel.addEventListener('focusout', () => queueMicrotask(updateTimer));
-  carousel.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') pointerOver = true; updateTimer(); });
-  carousel.addEventListener('pointerleave', () => { pointerOver = false; updateTimer(); });
-  document.addEventListener('visibilitychange', updateTimer);
-  reducedMotion.addEventListener('change', () => {
-    if (reducedMotion.matches) playing = false;
-    updateTimer();
+}
+
+const previewTabs = [...document.querySelectorAll('[data-preview-tab]')];
+bindTabs(previewTabs, selected => {
+  previewTabs.forEach(tab => { document.getElementById(tab.getAttribute('aria-controls')).hidden = tab !== selected; });
+});
+
+const imageDialog = document.querySelector('.image-dialog');
+if (imageDialog && typeof imageDialog.showModal === 'function') {
+  let opener;
+  document.querySelectorAll('[data-lightbox]').forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    opener = link;
+    const preview = imageDialog.querySelector(':scope > img');
+    preview.src = link.href;
+    preview.alt = link.querySelector('img').alt;
+    imageDialog.querySelector('p').textContent = link.dataset.lightboxLabel || preview.alt;
+    imageDialog.showModal();
+  }));
+  imageDialog.querySelector('.dialog-close').addEventListener('click', () => imageDialog.close());
+  imageDialog.addEventListener('click', event => {
+    if (event.target !== imageDialog) return;
+    const bounds = imageDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) imageDialog.close();
   });
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; updateTimer(); }, { threshold: .2 });
-    observer.observe(carousel);
-  } else {
-    inView = true;
-  }
-  updateTimer();
+  // 原生 dialog 提供焦点约束；关闭后回到当前触发器，保持键盘浏览位置。
+  imageDialog.addEventListener('close', () => { opener?.focus({ preventScroll: true }); });
 }
 
 const releases = [...document.querySelectorAll('[data-release]')];
@@ -74,9 +52,7 @@ const versionLinks = [...document.querySelectorAll('[data-version-link]')];
 if (releases.length) {
   function updateVersion() {
     let active = releases[0];
-    for (const release of releases) {
-      if (release.getBoundingClientRect().top <= 125) active = release;
-    }
+    for (const release of releases) if (release.getBoundingClientRect().top <= 125) active = release;
     if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) active = releases.at(-1);
     for (const link of versionLinks) {
       if (link.hash === '#' + active.id) link.setAttribute('aria-current', 'location');

@@ -1,106 +1,29 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>小蓝办公（norioWork）— AI 文档协作桌面客户端</title><meta name="description" content="小蓝办公让 AI 直接在 Word、Excel、PPT 和智能文档里工作。选中段落、单元格或幻灯片，用对话修改并继续编辑。"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="小蓝办公（norioWork）— AI 文档协作桌面客户端"><meta property="og:description" content="小蓝办公让 AI 直接在 Word、Excel、PPT 和智能文档里工作。选中段落、单元格或幻灯片，用对话修改并继续编辑。"><meta property="og:site_name" content="小蓝办公"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/assets/app-icon.png" type="image/png"><link rel="stylesheet" href="/assets/styles.css"><script defer src="/assets/site.js"></script></head><body>
-<header class="site-header">
-  <div class="site-nav">
-    <a class="brand" href="/" aria-label="小蓝办公首页"><img src="/assets/brand.webp" width="360" height="120" alt="小蓝办公"></a>
-    <nav class="nav-links" aria-label="主导航">
-      <a href="/#products">编辑器</a>
-      <a href="/#features">AI 协作</a>
-      <a href="/changelog/">更新日志</a>
-    </nav>
-    <a class="button button--primary nav-download" href="/download/">下载客户端 <span aria-hidden="true">↓</span></a>
-  </div>
-</header>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小蓝办公 norioWork — 把想法，变成作品</title><meta name="description" content="小蓝办公 norioWork：一句话生成 PPT，图表转 Excel，拍照转 Word。在同一个 AI 办公桌面完成创作与编辑。">
+<meta name="theme-color" content="#fffaf7"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="小蓝办公 norioWork — 把想法，变成作品"><meta property="og:description" content="一句话生成 PPT，图表转 Excel，拍照转 Word。生成之后，继续编辑。"><meta property="og:site_name" content="小蓝办公 norioWork"><meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/app-icon.png" type="image/png"><link rel="stylesheet" href="/assets/official.css"><script defer src="/assets/site.js"></script></head>
+<body class="home"><a class="skip-link" href="#main">跳到主要内容</a>
+<header class="site-header"><div class="site-nav shell"><a class="brand" href="/" aria-label="小蓝办公 norioWork 首页"><img src="/assets/app-icon.png" width="34" height="34" alt=""><span>norioWork</span></a><nav class="simple-nav" aria-label="主导航"><a class="home-link" href="/" aria-current="page">首页</a><a class="button nav-download" href="/download/">下载 <img src="/assets/icons/arrow-right.svg" alt="" width="16" height="16"></a></nav></div></header>
 <main id="main">
-  <div class="first-screen">
-    <section class="hero shell" aria-labelledby="hero-title">
-      <p class="eyebrow">小蓝办公 <span aria-hidden="true"></span> AI OFFICE</p>
-      <h1 id="hero-title"><span>让 <em>AI</em></span> <span>直接编辑文档</span></h1>
-      <p class="hero-summary">写 Word、做 Excel、改 PPT。左边是编辑器，右边是 AI。<br class="desktop-break">选中要改的内容，说出要求，改动直接出现在编辑器里。</p>
-      <div class="hero-actions">
-        <a class="button button--primary" href="/download/">下载 Windows 版 <span aria-hidden="true">↓</span></a>
-        <a class="button button--secondary" href="#products">看编辑器演示 <span aria-hidden="true">↘</span></a>
-      </div>
-    </section>
-
-    <section class="showroom shell" id="products" aria-label="产品演示" aria-roledescription="轮播" data-carousel>
-      <div class="showroom-heading">
-        <h2>编辑器和 AI，在同一个窗口。</h2>
-        <p>.docx <span>·</span> .xlsx <span>·</span> .pptx <span>·</span> .nordox</p>
-      </div>
-      <div class="product-stage" id="workflows">
-        <div class="stage-toolbar">
-          <div class="stage-tabs" role="tablist" aria-label="切换编辑器场景">
-            <button type="button" role="tab" id="tab-ppt" aria-selected="true" aria-controls="panel-ppt"><span class="format-mark format-mark--ppt" aria-hidden="true">P</span>PPT 创作</button>
-            <button type="button" role="tab" id="tab-excel" aria-selected="false" aria-controls="panel-excel" tabindex="-1"><span class="format-mark format-mark--excel" aria-hidden="true">X</span>Excel 分析</button>
-            <button type="button" role="tab" id="tab-smart" aria-selected="false" aria-controls="panel-smart" tabindex="-1"><span class="format-mark format-mark--smart" aria-hidden="true">T</span>智能文档</button>
-          </div>
-          <div class="stage-controls" aria-label="轮播控制">
-            <span class="slide-count" data-slide-count aria-hidden="true">01 / 03</span>
-            <button type="button" class="stage-control" data-carousel-prev aria-label="上一张" title="上一张">‹</button>
-            <button type="button" class="stage-control" data-carousel-next aria-label="下一张" title="下一张">›</button>
-            <button type="button" class="stage-control stage-toggle" data-carousel-toggle aria-label="暂停自动切换" title="暂停自动切换">Ⅱ</button>
-          </div>
-        </div>
-        <div class="stage-slides" data-carousel-slides aria-live="off">
-          <figure id="panel-ppt" class="stage-slide" role="tabpanel" aria-labelledby="tab-ppt">
-            <img src="/assets/product/ppt-ai.webp" width="1440" height="880" fetchpriority="high" decoding="async" alt="小蓝办公左侧正在编辑品牌发布 PPT，右侧 AI 对话说明三页汇报的结构">
-            <figcaption><div><strong>把发布计划做成可编辑的汇报</strong><span>用 AI 梳理大纲、制作幻灯片，打开后继续调整当前页。</span></div><a href="/assets/product/ppt-ai.webp" target="_blank" rel="noopener" aria-label="查看 PPT 演示大图（新标签页）">查看大图 ↗</a></figcaption>
-          </figure>
-          <figure id="panel-excel" class="stage-slide" role="tabpanel" aria-labelledby="tab-excel" hidden>
-            <img src="/assets/product/excel-ai.webp" width="1440" height="880" decoding="async" alt="小蓝办公左侧的 Excel 表格标出超预算项目，右侧 AI 对话解释差额与合计">
-            <figcaption><div><strong>把支出和差额一次理清</strong><span>在表里选定范围，让 AI 汇总费用、补公式或标记异常。</span></div><a href="/assets/product/excel-ai.webp" target="_blank" rel="noopener" aria-label="查看 Excel 演示大图（新标签页）">查看大图 ↗</a></figcaption>
-          </figure>
-          <figure id="panel-smart" class="stage-slide" role="tabpanel" aria-labelledby="tab-smart" hidden>
-            <img src="/assets/product/smart-ai.webp" width="1440" height="880" decoding="async" alt="小蓝办公左侧智能文档显示启动会结论与行动清单，右侧 AI 对话说明整理结果">
-            <figcaption><div><strong>把一场讨论整理成下一步</strong><span>提炼结论、待办与风险，选中任意一节继续改写。</span></div><a href="/assets/product/smart-ai.webp" target="_blank" rel="noopener" aria-label="查看智能文档演示大图（新标签页）">查看大图 ↗</a></figcaption>
-          </figure>
-        </div>
-      </div>
-      <p class="showroom-note">小蓝办公客户端实拍 · 演示资料与对话</p>
-    </section>
-  </div>
-
-<section class="editor-spec shell" aria-labelledby="editors-title">
-    <div class="section-intro">
-      <p class="section-label">01 / 编辑器</p>
-      <h2 id="editors-title">生成之后，<br>还可以继续编辑。</h2>
-      <p>从已有文件开始，或者新建一份。正文、单元格和幻灯片对象都可以继续调整。</p>
-    </div>
-    <dl class="editor-list">
-      <div><dt><span class="format-mark format-mark--word" aria-hidden="true">W</span><strong>Word</strong></dt><dd>改写选中段落、补充表格，继续排版。<code>.docx</code></dd></div>
-      <div><dt><span class="format-mark format-mark--excel" aria-hidden="true">X</span><strong>Excel</strong></dt><dd>汇总选区数据、补公式、核对结果。<code>.xlsx</code></dd></div>
-      <div><dt><span class="format-mark format-mark--ppt" aria-hidden="true">P</span><strong>PPT</strong></dt><dd>从资料制作演示，继续改文字、图形和当前页。<code>.pptx</code></dd></div>
-      <div><dt><span class="format-mark format-mark--smart" aria-hidden="true">T</span><strong>智能文档</strong></dt><dd>把会议纪要和长资料整理成章节、清单与图文。<code>.nordox</code></dd></div>
-    </dl>
-  </section>
-
-  <section class="ai-section" id="features" aria-labelledby="features-title">
-    <div class="ai-layout shell">
-      <div class="section-intro">
-        <p class="section-label">02 / 文档内 AI</p>
-        <h2 id="features-title">说一句，<br>改在指定的位置。</h2>
-        <p>结合当前文档和参考资料，让 AI 把这一处改好。</p>
-      </div>
-      <ol class="ai-steps">
-        <li><span aria-hidden="true">01</span><div><h3>选中要改的内容</h3><p>一段正文、一片单元格，或当前这张幻灯片。</p></div></li>
-        <li><span aria-hidden="true">02</span><div><h3>告诉 AI 改成什么样</h3><p>例如“把这段改成三条项目目标，保留日期和金额”。</p></div></li>
-        <li><span aria-hidden="true">03</span><div><h3>回到原处检查结果</h3><p>继续手动编辑，或在支持的编辑器里查看改动记录、撤回本轮。</p></div></li>
-      </ol>
-    </div>
-  </section>
-
-<section class="end-cta shell" aria-labelledby="download-title">
-    <div class="cta-panel">
-      <div><p class="section-label">小蓝办公 · NORIOWORK</p><h2 id="download-title">打开文件，试着改一处。</h2><p>可连接你选择的 AI 模型服务。</p></div>
-      <a class="button button--primary" href="/download/">下载小蓝办公 <span aria-hidden="true">↓</span></a>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="footer-inner">
-    <a class="brand" href="/" aria-label="小蓝办公首页"><img src="/assets/brand.webp" width="360" height="120" alt="小蓝办公"></a>
-    <p>小蓝办公 · AI 桌面工作空间</p>
-    <nav aria-label="页脚导航"><a href="/#products">编辑器</a><a href="/changelog/">更新日志</a><a href="/download/">下载</a></nav>
-  </div>
-</footer>
-</body></html>
+<section class="intro-section" id="overview" aria-labelledby="hero-title">
+<div class="intro-copy shell"><p class="intro-badge"><img src="/assets/icons/sparkles.svg" width="16" height="16" alt="">AI 办公桌面 <span>·</span> 生成后继续编辑</p><h1 id="hero-title"><span class="headline-opening">懂创作，会办公 <img class="headline-mascot" src="/assets/mascot-source.png" width="80" height="80" alt="小蓝办公吉祥物"></span><span>把想法变成作品</span></h1><p class="intro-description">一句话生成 PPT，图表变成 Excel，拍下文字整理为 Word。生成之后，还能在编辑器里继续修改和完善。</p><div class="intro-actions"><a class="button button--primary" href="/download/">立即下载 <img src="/assets/icons/arrow-right.svg" width="20" height="20" alt=""></a><a class="button button--secondary" href="#capabilities">了解功能</a></div></div>
+<div class="product-stage shell">
+<div class="product-frames">
+<div id="preview-ppt" role="tabpanel" aria-labelledby="preview-tab-ppt"><a class="product-image" href="/assets/product/ppt-ai.webp" data-lightbox data-lightbox-label="PPT 编辑器 · 客户端界面，内容为演示资料" aria-label="放大查看 PPT 编辑器"><img src="/assets/product/ppt-ai.webp" width="1440" height="880" alt="小蓝办公 PPT 编辑器：在同一个窗口编辑文件、与 AI 对话" fetchpriority="high"></a></div>
+<div id="preview-excel" role="tabpanel" aria-labelledby="preview-tab-excel" hidden><a class="product-image" href="/assets/product/excel-ai.webp" data-lightbox data-lightbox-label="Excel 编辑器 · 客户端界面，内容为演示资料" aria-label="放大查看 Excel 编辑器"><img src="/assets/product/excel-ai.webp" width="1440" height="880" alt="小蓝办公 Excel 编辑器：核对预算表格，并与 AI 一起分析数据" loading="lazy"></a></div>
+<div id="preview-word" role="tabpanel" aria-labelledby="preview-tab-word" hidden><a class="product-image" href="/assets/product/smart-ai.webp" data-lightbox data-lightbox-label="智能文档编辑器 · 客户端界面，内容为演示资料" aria-label="放大查看文档编辑器"><img src="/assets/product/smart-ai.webp" width="1440" height="880" alt="小蓝办公智能文档：整理项目结论、编辑正文、与 AI 对话" loading="lazy"></a></div>
+</div>
+<div class="floating-panel floating-formats"><p>你的下一份作品</p><div class="preview-tabs" role="tablist" aria-label="查看客户端创作界面"><button type="button" role="tab" id="preview-tab-ppt" aria-controls="preview-ppt" aria-selected="true" data-preview-tab><img src="/assets/icons/ppt.png" width="27" height="27" alt=""><span>演示文稿 PPT</span><img class="format-check" src="/assets/icons/check.svg" width="16" height="16" alt=""></button><button type="button" role="tab" id="preview-tab-excel" aria-controls="preview-excel" aria-selected="false" tabindex="-1" data-preview-tab><img src="/assets/icons/excel.png" width="27" height="27" alt=""><span>数据表格 Excel</span><img class="format-check" src="/assets/icons/check.svg" width="16" height="16" alt=""></button><button type="button" role="tab" id="preview-tab-word" aria-controls="preview-word" aria-selected="false" tabindex="-1" data-preview-tab><img src="/assets/icons/word.png" width="27" height="27" alt=""><span>文字与文档</span><img class="format-check" src="/assets/icons/check.svg" width="16" height="16" alt=""></button></div></div>
+<div class="floating-panel floating-capabilities"><div class="floating-title"><img src="/assets/icons/sparkles.svg" width="16" height="16" alt="">从素材，到可编辑的文件</div><ul><li><img src="/assets/icons/circle-check.svg" width="14" height="14" alt="">一句话，生成整套 PPT</li><li><img src="/assets/icons/circle-check.svg" width="14" height="14" alt="">图表里的数据，整理成 Excel</li><li><img src="/assets/icons/circle-check.svg" width="14" height="14" alt="">拍下来的文字，转换为 Word</li></ul></div>
+<div class="floating-panel floating-edit"><div class="floating-title"><img src="/assets/icons/word.png" width="24" height="24" alt="">生成之后，接着打磨</div><p>在同一个窗口与 AI 协作，<br>修改文字、调整排版，完善每一处细节。</p><span>AI 创作 + 文件编辑</span></div>
+</div>
+</section>
+<section class="creation-section shell" id="capabilities" aria-labelledby="creation-title"><div class="section-heading"><p class="eyebrow">让创作，少一点繁琐</p><h2 id="creation-title">素材交给小蓝，<br>时间留给你的想法。</h2><p>不用从空白页开始，也不用在多个工具间来回。<br>说清你想要什么，和 AI 一起完成下一份作品。</p></div>
+<article class="presentation-feature"><div class="presentation-copy"><span class="feature-index">01 / 演示文稿</span><h3>一句话，<br>一整套 PPT。</h3><p>给一个主题，或带上一份参考资料。<br>从内容大纲到页面设计，让 AI 完成第一稿，你来决定最后的表达。</p><a class="text-link" href="/download/">开始你的下一场表达 <img src="/assets/icons/arrow-right.svg" width="18" height="18" alt=""></a><div class="file-label"><img src="/assets/icons/ppt.png" width="24" height="24" alt="">生成后，文字与布局都能继续编辑</div></div><div class="presentation-visual"><a class="presentation-cover" href="/assets/styles/editorial-story-cover.webp" data-lightbox data-lightbox-label="杂志叙事 · 客户端内置 PPT 风格，内容为演示素材"><img src="/assets/styles/editorial-story-cover.webp" width="480" height="270" loading="lazy" alt="杂志叙事风格 PPT 封面：街角书店的一天"></a><a class="presentation-page" href="/assets/styles/editorial-story-body.webp" data-lightbox data-lightbox-label="杂志叙事 · 客户端内置 PPT 内容页预览"><img src="/assets/styles/editorial-story-body.webp" width="480" height="270" loading="lazy" alt="同一套 PPT 的内容页面，展示文字、图片和排版"></a><span class="visual-caption">客户端内置风格预览 · 杂志叙事</span></div></article>
+<div class="conversion-grid"><article class="conversion-card conversion-card--excel"><div class="conversion-copy"><span class="feature-index">02 / 数据表格</span><h3>图表里的数据，<br>回到可计算的表格。</h3><p>上传图表或表格图片，提取分类与数值，整理成 Excel。接着补公式、做汇总，让数据继续发挥价值。</p></div><a class="conversion-visual excel-visual" href="/assets/product/excel-ai.webp" data-lightbox data-lightbox-label="Excel 编辑器 · 客户端界面，内容为演示资料" aria-label="放大查看表格编辑界面"><img src="/assets/product/excel-ai.webp" width="1440" height="880" loading="lazy" alt="AI 与 Excel 编辑器协同分析项目预算表格"></a><p class="capability-note">使用支持识图的模型，识别结果可在表格中核对。</p></article>
+<article class="conversion-card conversion-card--word"><div class="conversion-copy"><span class="feature-index">03 / 文字文档</span><h3>随手拍下文字，<br>就是文档的开始。</h3><p>纸上的会议记录、截图里的段落，识别后整理成 Word。标题、正文、待办清单，都能接着修改。</p></div><div class="conversion-visual word-visual"><a href="/assets/demos/photo-source.jpg" data-lightbox data-lightbox-label="拍照转文档 · 文字照片演示素材" aria-label="放大查看文字照片示例"><img class="document-photo" src="/assets/demos/photo-source.jpg" width="640" height="780" loading="lazy" alt="项目启动会记录的文字照片演示素材"></a><div class="document-result"><img src="/assets/icons/word.png" width="38" height="38" alt=""><span>项目启动会纪要<small>识别文字 · 整理段落 · 继续编辑</small></span><b>.docx</b></div></div><p class="capability-note">使用识图模型或可用 OCR；照片为场景演示素材。</p></article></div></section>
+<section class="editing-section" aria-labelledby="editing-title"><div class="shell"><div class="editing-heading"><div><p class="eyebrow">创作不止于生成</p><h2 id="editing-title">第一稿之后，<br>还有你的好想法。</h2></div><p>AI 对话与文件编辑，在同一个窗口。<br>选中内容，告诉小蓝怎么改；<br>也可以亲手调整，把每一处细节做到满意。</p></div><a class="editing-image" href="/assets/product/smart-ai.webp" data-lightbox data-lightbox-label="智能文档编辑器 · 客户端界面，内容为演示资料" aria-label="放大查看 AI 协同编辑界面"><img src="/assets/product/smart-ai.webp" width="1440" height="880" loading="lazy" alt="文档编辑器与 AI 对话并排显示，方便检查与完善内容"></a><div class="editing-principles"><span>在原处修改</span><span>按你的要求完善</span><span>让成果真正可用</span></div></div></section>
+<section class="download-closing"><div class="shell"><p class="eyebrow">下一份作品，从这里开始</p><h2>带上想法，<br class="mobile-break">其余交给小蓝。</h2><a class="button button--primary" href="/download/">下载小蓝办公 <img src="/assets/icons/arrow-right.svg" width="18" height="18" alt=""></a><p class="closing-note">安装客户端，连接 AI 模型，即可开始创作。</p></div></section></main>
+<footer class="site-footer"><div class="footer-inner shell"><a class="brand" href="/" aria-label="小蓝办公 norioWork 首页"><img src="/assets/app-icon.png" width="28" height="28" alt=""><span>norioWork</span></a><p>© 2026 小蓝办公 norioWork</p><nav aria-label="页脚导航"><a href="/">首页</a><a href="/download/">下载</a></nav></div></footer>
+<dialog class="image-dialog" aria-label="产品图片大图"><button type="button" class="dialog-close" aria-label="关闭大图"><img src="/assets/icons/x.svg" width="20" height="20" alt=""></button><img alt=""><p></p></dialog></body></html>
