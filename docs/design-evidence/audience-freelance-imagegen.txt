@@ -1,0 +1,12 @@
+Asset: audience-freelance.webp
+Mode: built-in image_gen, generate transparent original 3D character using reference for art direction only
+Original: C:/Users/80569/.codex/generated_images/01a1e99c-229e-72b2-935b-5efb4285d092/exec-17a331ac-3106-4e46-9b4f-1523c68ba6b2.png
+Final: D:/work/office/norioWork-official/assets/campaign/audience-freelance.webp
+Final dimensions: 320 x 320
+Transport optimization: @napi-rs/canvas contain resize, WebP quality 90; source alpha preserved, original retained.
+Reference: C:/Users/80569/AppData/Local/Temp/codex-clipboard-a06bed94-3256-4761-a065-0d4baf357d4f.png
+Validation: original adult male avatar with dark hair, round glasses, pale blue shirt and blue laptop; clean silhouette, no logos, text, frame or background. True transparent pixels verified.
+
+Final prompt:
+Create ONE original premium stylized 3D commercial avatar illustration with a genuinely TRANSPARENT alpha background. Image 1 is REFERENCE ONLY for the third tiny audience avatar in the row near bottom: freelance worker with round glasses and laptop. Do not reproduce any webpage, card, text, or surrounding layout. Subject: fictional adult East Asian young man, age 25-32, tidy short dark navy-black hair with side part, round dark blue thin glasses, warm friendly smile, pale blue casual collared shirt. Waist-up, centered frontal with subtle three-quarter turn, large clear face and friendly rounded proportions. Both hands are typing on a small open blue laptop, laptop lid facing viewer, completely plain with no logo or letters. Friendly high quality 3D character with soft sculpted toy/clay/Pixar-like commercial rendering, smooth but tasteful surfaces, clean blue-white palette, soft studio lighting, subtle pale blue rim light. Frame a complete waist-up character and laptop in a square 1:1 composition with 8% safety margin, hands and laptop fully inside canvas. Should remain instantly legible when displayed at 80x80 pixels. Transparent background only, no colored square, no circle, no pedestal, no scenery, no surrounding icons, no caption, no watermark, no text, no logos. Natural two hands, no extra fingers. The main shirt and laptop are blue but face warm natural skin. Original avatar, recognizable professional freelancer persona.
+

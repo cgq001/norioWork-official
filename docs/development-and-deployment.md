@@ -6,19 +6,21 @@
 
 ## 页面与内容
 
-- `/`：按用户指定 Octop 参考适配的居中首屏、暖色颗粒、大幅真实界面、三步上手、功能侧栏切换、创作风格、FAQ 与下载入口。
-- `/download/`：独立下载页，Windows/macOS/Linux 标签，支持键盘左右箭头、Home、End 切换。
+- `/`：按 2026-11-17 用户选定的蓝白参考图实现：左文右图首屏、六项能力快捷条、四个办公灵感场景、六项核心能力、四项产品优势、四类适用人群、系统下载区和常见问题。场景卡片和能力按钮打开功能详情弹层；FAQ 使用原生 details，支持键盘展开。
+- `/download/`：蓝白下载页，居中标题、原创小蓝主视觉和Windows/macOS双入口。Windows使用固定latest发行页，macOS待发布时打开状态弹层。「其他版本与平台」显示三个系统的安装包，支持左右箭头、Home、End切换与Escape关闭。
 - `/changelog/`：左侧版本目录，右侧更新内容，随滚动高亮当前版本；以公开发布记录为准。
 - `/docs/`：独立文档页，包含模型配置、编辑器、资料管理、技能、通道、定时任务和常见问题。
 - `404.html`：真正的 404 页面，不使用 SPA 全站回退。
 
-首页以 https://octop.cloud/ 的实际电脑/手机截图为当前视觉基准，采用居中标题与品牌形象、黑色按钮、暖色颗粒背景和大幅真实客户端界面。中段包括三步上手标签切换、PPT 专题、电脑功能侧栏和手机叠放卡片，保留复制指令、放大图片和原生 FAQ。用户明确选择了这一参考，前面的配色探索不再作为当前视觉方向。
+当前首页以用户 2026-11-17 新增内容的图片为视觉基准，参考存于 `docs/design-evidence/extended-home-reference.png`。采用蓝白配色和紧凑布局，后续按用户反馈增大下半页高度与留白，1024px 宽时整页约2112px高；平板与手机调整为上下主视觉、两列场景和三列或两列能力。之前的 Octop 与暖色方案仅保留历史记录。
 
-首页仅加载 `assets/official.css`，完整替换旧首页样式。内页保留 `assets/styles.css` 的文档与下载内容布局，并用 `official.css` 统一品牌、导航与页脚；构建为样式和脚本生成内容哈希。`assets/styles/` 保存客户端内置 PPT 风格预览；`assets/demos/` 保存图表、文字照片演示素材及 AI 生成的 PPT 封面配图。演示图表与网页表格的数据保持一致，照片的原文与整理结果保留一致事实。
+首页独立加载 `assets/home.css` 与 `assets/home.js`；下载页复用首页品牌样式，额外加载 `assets/download-page.css` 和更新的 `download.js`，其他内页保留已有样式。构建为新旧页面使用的 CSS 和 JavaScript 生成内容哈希，避免更新后使用旧代码。七张原创宣传与场景配图位于 `assets/campaign/`，完整提示词、模式与原图路径见 `docs/design-evidence/blue-home-assets.md`。图标沿用既有产品资产与 Lucide，照片和插画为 AI 功能示意，实际识别、生成与编辑在客户端完成。
 
-当前视觉参考（2026-11-16）：https://octop.cloud/ 。实现只借鉴版式与呈现方式；小蓝的角色、图标、截图、功能与下载均使用自己的素材和真实内容。没有复制对方的 Star 数、开源承诺、桌宠功能或安装命令。完整对照与功能 QA 见项目根目录 design-qa.md。
+新增四个人群角色位于 `assets/campaign/audience-*.webp`，完整提示词、生成模式与原始路径见 `docs/design-evidence/extended-home-assets.md`。首页平台入口使用 `/download/?platform=windows` 或 `macos`；Windows展示主下载入口，macOS/Linux直接打开对应状态弹层，未知值回退Windows。macOS 尚未发布，首页与下载页明确显示待发布。
 
-下载配置与更新日志已按 2026-11-16 查询的 GitHub 最新公开发行版 `v0.8.12` 更新（2026-11-12 发布），保留国内 GitCode 入口。客户端源码的开发版本不直接用作官网公开下载版本。发布来源：<https://github.com/cgq001/norioWork/releases/tag/v0.8.12>。
+完整同图对照、字体与响应式验收见项目根目录 `design-qa.md`。静态官网不调用模型、不上传用户材料；能力卡片只展示说明。导航保留首页、下载，主流程仍进入独立下载页，再由固定的 GitCode latest 入口获取最新正式版。
+
+下载入口已经改为 GitCode 固定 latest 正式版发行页，不在官网写死版本号、日期或大小；具体说明见下文「下载配置」。更新日志保留已公开发布的历史记录。
 
 ## 本地开发
 
@@ -137,3 +139,11 @@ npm run deploy
 - 上一版首页直接展示真实 PPT 客户端截图，配合产品已有品牌形象和文档图标。`assets/icons/` 的线性图标来自 Lucide，许可证一并保留。
 - 上一版使用海岸建筑 AI 配图展示 PPT 场景。前节保留该素材的生成记录。
 - 构建只发布 `docs/index.html`，不复制 `docs/design-evidence/`、开发说明或项目根目录的 QA 报告。
+
+## 下载页蓝白改版（2026-11-17）
+
+按用户提供的1717×916参考实现。新主视觉为 `assets/campaign/download-hero.webp`，完整生成记录见 `docs/design-evidence/download-hero-imagegen.txt`。保留真实机器人品牌，未发布的macOS显示待发布，Windows固定latest地址不变；其他安装包信息保留在原生dialog内，支持键盘与深链接。下载页对照及响应式证据以 `download-blue-` 命名，验收见根目录 `design-qa.md`。
+
+## 页头统一修正（2026-11-17）
+
+首页和下载页现在直接使用同一套页头HTML结构与 `home.css` 规则，只切换 `aria-current`。下载页CSS仅定义正文，不再覆盖页头。统一54px高度、1236px最大容器宽度、36px品牌图标、16px桌面导航以及右侧立即下载按钮；所有断点复用首页设置。桌面与手机实际测量一致，完整证据见 `docs/design-evidence/shared-header-metrics.json` 与根目录验收报告。

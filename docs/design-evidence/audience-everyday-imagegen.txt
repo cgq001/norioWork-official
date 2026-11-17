@@ -1,0 +1,10 @@
+Asset: Personal everyday-use transparent audience avatar
+Mode: built-in image_gen, generate with transparent_background=true
+Original preserved: C:/Users/80569/.codex/generated_images/01a1e99b-cd2a-7720-9f1d-ade67313b60c/exec-4c1c91bb-09e2-4bd7-b545-6e4c26dc7a0c.png
+Final: D:/work/office/norioWork-official/assets/campaign/audience-everyday.webp
+Final dimensions: 320 x 320
+Processing: resampled to 320 x 320 and encoded as WebP, preserving genuine generated alpha; no semantic editing
+Visual QA: yellow casual top, fictional adult woman, shoulder-length dark hair, smartphone and blank note card, rounded 3D style matching audience-office, no text/logos/captions/enclosing circle. Transparent corner pixels verified.
+
+Exact prompt:
+Create ONE personal everyday-use audience avatar on genuine transparent alpha background, square1:1 composition, for a blue-white AI office homepage. Visual style: same premium polished stylized 3D campaign icon series as the already shown office-woman avatar, with rounded friendly face, large expressive dark eyes, smooth soft tactile materials, neat navy-black shoulder-length hair, believable stylized hands, soft studio lighting. Make a distinct fictional young adult East Asian woman, warm cheerful smile, warm yellow casual short-sleeve top, waist-up portrait. She holds a slim pale-blue smartphone upright in one hand, tilted slightly toward her but clearly recognizable to viewer, and a small blank ivory note card in the other hand near her torso. The note card has no words; phone has no visible brand/logo or text. Three-quarter front orientation, friendly approachable everyday planning feeling, large readable face and phone, fill canvas with upper body, small 5 percent safety margins, optimized to remain recognizable at80x80. Palette primarily soft navy hair, warm yellow top, pale-blue phone, light natural skin. Asset is a clean isolated cutout, genuinely transparent background, no background panel, no enclosing circle, no floor/platform, no laptop, no extra objects, no captions, no words, no logos or watermark.

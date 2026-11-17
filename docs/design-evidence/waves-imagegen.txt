@@ -1,0 +1,7 @@
+Asset: blue-wave background
+Mode: built-in ImageGen generation; supplied screenshot used only as style reference
+Original: C:/Users/80569/.codex/generated_images/01a1e1a9-ce74-7a83-afe9-b26f5ed306da/exec-8d2726da-99fd-44d1-9e6f-36e199803e16.png
+Final: D:/work/office/norioWork-official/assets/campaign/blue-waves.webp
+Original dimensions: 2172×724; final: 1920×640, same 3:1 ratio
+Prompt:
+Use case: background-plate. Asset type: empty blue-white website banner background, wide 3:1 landscape, 2304 x 768. The supplied screenshot is ONLY a palette and subtle flowing-wave style reference. Generate ONLY the EMPTY background: very pale ice-blue and white luminous studio background, smooth translucent flowing ribbon-like waves along bottom edge and rising at far right, a thin graceful white curved light trail, soft airy blue glow strongest upper right and lower left, plenty of very light almost white negative space across center and left for dark text. Elegant professional Chinese AI office software promotional art direction, tasteful clean optimistic Microsoft/enterprise blue palette. Keep it refined and simple, not cosmic or neon. NO laptops, NO people, NO robots, NO icons, NO words, NO logos, NO UI, NO buttons, NO cards, NO text, NO objects. Pure empty wave background only.

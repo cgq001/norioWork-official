@@ -1,0 +1,10 @@
+Asset: audience-student
+Mode: built-in ImageGen generation, transparent_background=true; user screenshot as bottom audience-row style reference
+Original preserved: C:/Users/80569/.codex/generated_images/01a1e99b-a3d7-7651-a345-59954778d91c/exec-75bd36e2-53c9-46d6-a577-046b17baf153.png
+Runtime asset: D:/work/office/norioWork-official/assets/campaign/audience-student.webp
+Final prompt:
+Use case: ads-marketing.
+Asset type: one standalone student audience avatar for an AI office website.
+Input image: the supplied website screenshot is a STYLE REFERENCE ONLY. Look specifically at the small STUDENT avatar in the bottom audience row. Do not generate a website, collage, text card, surrounding circle or other avatars.
+Create one fictional young adult East Asian college woman, upper-body bust portrait, in a friendly polished stylized 3D commercial illustration style. She has a neat dark bob with a little tied-back section, round thin dark glasses, expressive friendly eyes, a gentle cheerful smile, and a pale warm-yellow casual top with subtle light-blue detail. She holds an open vivid blue textbook with one hand and a simple pen with the other, as if studying or writing notes. The face, glasses, book and hands must be clearly legible when reduced to 80×80 pixels. Sophisticated rounded 3D forms, soft studio illumination, smooth clean materials, blue-white palette with pale yellow accent, matching the visual language of the reference's bottom-row audience illustrations.
+Composition: square 1:1 canvas, single centered upper-body portrait, snug but safe margins; whole head, hair, shoulders, hands, blue book and pen comfortably inside canvas. Genuine fully transparent alpha background. No separate surrounding circle, no pedestal, no scenery, no glow rectangle, no white card, no writing on book, no letters, no logos, no caption, no watermark. Adult college student, not a child.

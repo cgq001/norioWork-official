@@ -1,0 +1,334 @@
+{
+  "desktop": {
+    "home": {
+      ".brand": {
+        "display": "flex",
+        "font": "14px",
+        "h": 38.39,
+        "w": 266.6,
+        "x": 240.57,
+        "y": 7.8
+      },
+      ".brand b": {
+        "display": "inline",
+        "font": "23px",
+        "h": 30.86,
+        "w": 119.95,
+        "x": 387.22,
+        "y": 11.8
+      },
+      ".brand>img": {
+        "display": "block",
+        "font": "14px",
+        "h": 36,
+        "w": 36,
+        "x": 240.57,
+        "y": 9
+      },
+      ".brand>span": {
+        "display": "block",
+        "font": "24px",
+        "h": 38.39,
+        "w": 219.6,
+        "x": 287.57,
+        "y": 7.8
+      },
+      ".header-download": {
+        "display": "flex",
+        "font": "13px",
+        "h": 34,
+        "w": 110.14,
+        "x": 1366.43,
+        "y": 10
+      },
+      ".simple-nav": {
+        "display": "flex",
+        "font": "14px",
+        "h": 24,
+        "w": 160.57,
+        "x": 537.17,
+        "y": 15
+      },
+      ".simple-nav>a:first-child": {
+        "display": "block",
+        "font": "16px",
+        "h": 24,
+        "w": 38,
+        "x": 578.74,
+        "y": 15
+      },
+      ".simple-nav>a:last-child": {
+        "display": "block",
+        "font": "16px",
+        "h": 24,
+        "w": 38,
+        "x": 659.74,
+        "y": 15
+      },
+      ".site-header": {
+        "display": "block",
+        "font": "14px",
+        "h": 54,
+        "w": 1717.14,
+        "x": 0,
+        "y": 0
+      },
+      ".site-nav": {
+        "display": "flex",
+        "font": "14px",
+        "h": 54,
+        "w": 1236,
+        "x": 240.57,
+        "y": 0
+      }
+    },
+    "download": {
+      ".brand": {
+        "display": "flex",
+        "font": "14px",
+        "h": 38.39,
+        "w": 266.6,
+        "x": 240.57,
+        "y": 7.8
+      },
+      ".brand b": {
+        "display": "inline",
+        "font": "23px",
+        "h": 30.86,
+        "w": 119.95,
+        "x": 387.22,
+        "y": 11.8
+      },
+      ".brand>img": {
+        "display": "block",
+        "font": "14px",
+        "h": 36,
+        "w": 36,
+        "x": 240.57,
+        "y": 9
+      },
+      ".brand>span": {
+        "display": "block",
+        "font": "24px",
+        "h": 38.39,
+        "w": 219.6,
+        "x": 287.57,
+        "y": 7.8
+      },
+      ".header-download": {
+        "display": "flex",
+        "font": "13px",
+        "h": 34,
+        "w": 110.14,
+        "x": 1366.43,
+        "y": 10
+      },
+      ".simple-nav": {
+        "display": "flex",
+        "font": "14px",
+        "h": 24,
+        "w": 160.57,
+        "x": 537.17,
+        "y": 15
+      },
+      ".simple-nav>a:first-child": {
+        "display": "block",
+        "font": "16px",
+        "h": 24,
+        "w": 38,
+        "x": 578.74,
+        "y": 15
+      },
+      ".simple-nav>a:last-child": {
+        "display": "block",
+        "font": "16px",
+        "h": 24,
+        "w": 38,
+        "x": 659.74,
+        "y": 15
+      },
+      ".site-header": {
+        "display": "block",
+        "font": "14px",
+        "h": 54,
+        "w": 1717.14,
+        "x": 0,
+        "y": 0
+      },
+      ".site-nav": {
+        "display": "flex",
+        "font": "14px",
+        "h": 54,
+        "w": 1236,
+        "x": 240.57,
+        "y": 0
+      }
+    }
+  },
+  "mobile": {
+    "home": {
+      ".brand": {
+        "display": "flex",
+        "font": "14px",
+        "h": 29,
+        "w": 189.54,
+        "x": 15,
+        "y": 12.5
+      },
+      ".brand b": {
+        "display": "inline",
+        "font": "16px",
+        "h": 21.14,
+        "w": 82.97,
+        "x": 121.57,
+        "y": 16.26
+      },
+      ".brand>img": {
+        "display": "block",
+        "font": "14px",
+        "h": 29,
+        "w": 29,
+        "x": 15,
+        "y": 12.5
+      },
+      ".brand>span": {
+        "display": "block",
+        "font": "17px",
+        "h": 27.2,
+        "w": 153.54,
+        "x": 51,
+        "y": 13.4
+      },
+      ".header-download": {
+        "display": "none",
+        "font": "12px",
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      ".simple-nav": {
+        "display": "flex",
+        "font": "14px",
+        "h": 21,
+        "w": 89.57,
+        "x": 285.71,
+        "y": 16.5
+      },
+      ".simple-nav>a:first-child": {
+        "display": "block",
+        "font": "13px",
+        "h": 22,
+        "w": 28,
+        "x": 301.29,
+        "y": 16
+      },
+      ".simple-nav>a:last-child": {
+        "display": "block",
+        "font": "13px",
+        "h": 22,
+        "w": 28,
+        "x": 347.29,
+        "y": 16
+      },
+      ".site-header": {
+        "display": "block",
+        "font": "14px",
+        "h": 54,
+        "w": 390.29,
+        "x": 0,
+        "y": 0
+      },
+      ".site-nav": {
+        "display": "flex",
+        "font": "14px",
+        "h": 54,
+        "w": 360.29,
+        "x": 15,
+        "y": 0
+      }
+    },
+    "download": {
+      ".brand": {
+        "display": "flex",
+        "font": "14px",
+        "h": 29,
+        "w": 189.54,
+        "x": 15,
+        "y": 12.5
+      },
+      ".brand b": {
+        "display": "inline",
+        "font": "16px",
+        "h": 21.14,
+        "w": 82.97,
+        "x": 121.57,
+        "y": 16.26
+      },
+      ".brand>img": {
+        "display": "block",
+        "font": "14px",
+        "h": 29,
+        "w": 29,
+        "x": 15,
+        "y": 12.5
+      },
+      ".brand>span": {
+        "display": "block",
+        "font": "17px",
+        "h": 27.2,
+        "w": 153.54,
+        "x": 51,
+        "y": 13.4
+      },
+      ".header-download": {
+        "display": "none",
+        "font": "12px",
+        "h": 0,
+        "w": 0,
+        "x": 0,
+        "y": 0
+      },
+      ".simple-nav": {
+        "display": "flex",
+        "font": "14px",
+        "h": 21,
+        "w": 89.57,
+        "x": 285.71,
+        "y": 16.5
+      },
+      ".simple-nav>a:first-child": {
+        "display": "block",
+        "font": "13px",
+        "h": 22,
+        "w": 28,
+        "x": 301.29,
+        "y": 16
+      },
+      ".simple-nav>a:last-child": {
+        "display": "block",
+        "font": "13px",
+        "h": 22,
+        "w": 28,
+        "x": 347.29,
+        "y": 16
+      },
+      ".site-header": {
+        "display": "block",
+        "font": "14px",
+        "h": 54,
+        "w": 390.29,
+        "x": 0,
+        "y": 0
+      },
+      ".site-nav": {
+        "display": "flex",
+        "font": "14px",
+        "h": 54,
+        "w": 360.29,
+        "x": 15,
+        "y": 0
+      }
+    }
+  }
+}

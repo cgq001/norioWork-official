@@ -1,0 +1,11 @@
+Asset: mascot-footer
+Mode: built-in ImageGen generation, referenced hero-office.png and supplied mascot-source.png; transparent_background=true
+Original: C:/Users/80569/.codex/generated_images/01a1e99b-a3d7-7651-a345-59954778d91c/exec-0b83efda-4c38-44b7-b341-5b033158d812.png
+Workspace PNG: D:/work/office/norioWork-official/assets/campaign/mascot-footer.png
+Workspace optimized WebP: D:/work/office/norioWork-official/assets/campaign/mascot-footer.webp
+Final prompt:
+Use case: ads-marketing.
+Asset type: one transparent footer mascot illustration for a Chinese AI office website.
+Input image roles: Image 1 is the approved hero illustration; borrow ONLY the blue-and-white round robot identity at the lower-right and its glossy professional 3D rendering style. Do NOT include the big laptop, screen, plinth, floating tiles or whole scene. Image 2 is the original supplied mascot reference; borrow only its blue round robot with white face identity, not any Chinese lettering.
+Create a single adorable compact blue-and-white AI robot behind a small blue laptop, facing the viewer at a slight three-quarter angle. Its face is a smooth white rounded oval inset, bright dark-blue glass eyes with small catchlights, a little smiling mouth; shiny cobalt-blue round body and head, short rounded robot arms. One small hand is raised in a friendly wave hello, the other rests at the laptop. The laptop lid has ONLY one simple large white uppercase N, no other text. Keep the same charming robot proportions and clean blue/white palette as the approved hero asset. Attractive soft studio light, crisp rounded surfaces and subtle soft shadow under the laptop.
+Composition: isolated object group, horizontal canvas around 1.5:1, robot and laptop fill the useful center of canvas with small safety margins. Entire laptop and waving hand remain fully inside the frame. Intended display size around 150×120 CSS pixels, so keep the silhouette simple and face legible. Genuine transparent alpha background. NO platform or plinth, no landscape, no colored rectangle, no badge, no backdrop, no human child, no extra logo, no Chinese wordmark, no watermark.

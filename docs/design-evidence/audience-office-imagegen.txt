@@ -1,0 +1,10 @@
+Asset: Office worker transparent audience avatar
+Mode: built-in image_gen, generate with transparent_background=true
+Original preserved: C:/Users/80569/.codex/generated_images/01a1e99b-cd2a-7720-9f1d-ade67313b60c/exec-6ca2e161-aa88-4a69-9593-e181b0e63c90.png
+Final: D:/work/office/norioWork-official/assets/campaign/audience-office.webp
+Final dimensions: 320 x 320
+Processing: resampled to 320 x 320 and encoded as WebP, preserving genuine generated alpha; no semantic editing
+Visual QA: blue-clad fictional adult office woman, friendly polished rounded 3D style, face/laptop fill frame, no text/logos/captions/enclosing circle. Alpha verified with transparent corner pixels.
+
+Exact prompt:
+Create ONE premium stylized 3D office-worker avatar asset on a genuinely transparent background, square1:1 composition. This is a small audience icon for a blue-white AI office software homepage, displayed at80x80. Fictional young adult East Asian woman with shoulder-length dark navy-black hair with a tidy side part, warm friendly face, bright dark eyes, subtle smile, blue professional casual top with a simple pale-blue collar. Upper-body portrait seated and working at a small open silver-blue laptop in front of her, both hands placed naturally at its keyboard, a little of her blue sleeves visible around laptop edges. Three-quarter front view, eyes gently looking toward viewer, approachable competent office professional. Polished soft rounded stylized 3D illustration with smooth tactile materials, soft studio lighting, restrained blue-white palette and pale skin, large readable facial features. Fill the square with head, torso and laptop, about5percent safety margin, readable as a tiny icon. Isolated cutout only with genuine alpha; no background, no white panel, no enclosing circle, no floor platform, no words, no captions, no logos, no watermark, no extra accessories. Original character; the supplied screenshot audience row is only stylistic inspiration.
