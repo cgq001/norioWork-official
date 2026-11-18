@@ -18,7 +18,7 @@
 
 当前首页以用户 2026-11-17 新增内容的图片为视觉基准，参考存于 `docs/design-evidence/extended-home-reference.png`。采用蓝白配色和紧凑布局，后续按用户反馈增大下半页高度与留白，1024px 宽时整页约2112px高；平板与手机调整为上下主视觉、两列场景和三列或两列能力。之前的 Octop 与暖色方案仅保留历史记录。
 
-首页独立加载 `assets/home.css` 与 `assets/home.js`；独立下载页及其CSS、脚本已移除，原实现存于内部 `docs/design-evidence/retired-download/`，其他内页保留已有样式。构建为新旧页面使用的 CSS 和 JavaScript 生成内容哈希，避免更新后使用旧代码。七张原创宣传与场景配图位于 `assets/campaign/`，完整提示词、模式与原图路径见 `docs/design-evidence/blue-home-assets.md`。图标沿用既有产品资产与 Lucide，照片和插画为 AI 功能示意，实际识别、生成与编辑在客户端完成。
+首页加载 `assets/home.css`，不再加载运行时JavaScript；独立下载页及其CSS、脚本已移除，原实现存于内部 `docs/design-evidence/retired-download/`，其他内页保留已有样式。构建为新旧页面使用的 CSS 和 JavaScript 生成内容哈希，避免更新后使用旧代码。七张原创宣传与场景配图位于 `assets/campaign/`，完整提示词、模式与原图路径见 `docs/design-evidence/blue-home-assets.md`。图标沿用既有产品资产与 Lucide，照片和插画为 AI 功能示意，实际识别、生成与编辑在客户端完成。
 
 新增四个人群角色位于 `assets/campaign/audience-*.webp`，完整提示词、生成模式与原始路径见 `docs/design-evidence/extended-home-assets.md`。首页所有可点击的下载和系统入口均直达GitCode最新正式版。macOS 尚未发布，首页与下载页明确显示待发布。
 
@@ -157,3 +157,7 @@ npm run deploy
 ## 指定区域取消点击（2026-11-18）
 
 用户红框内的六项能力栏和四张场景卡片已改为静态HTML（列表项与article），移除data-capability、弹层属性、按钮焦点、手型光标与悬停浮动。下方核心能力的原有详情交互不受影响。点击实测不再打开dialog，截图 `docs/design-evidence/static-home-cards.jpg`。
+
+## 核心能力卡片取消点击（2026-11-18）
+
+六张核心能力卡片改为静态article，移除点击、箭头、手型光标与悬停浮动。至此首页所有功能介绍区都为静态展示，详情dialog及其脚本、CSS一并移除。原脚本保存在内部证据 `retired-capability-details.js`，不进入站点构建；原生FAQ仍可展开。验证截图 `docs/design-evidence/static-core-cards.jpg`。

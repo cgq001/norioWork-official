@@ -51,3 +51,9 @@ final result: passed
 来源 `docs/design-evidence/static-home-cards-user-markup.png`。六项能力栏改为静态列表项，四张场景卡片改为article；移除按钮、data-capability、aria-haspopup及悬停反馈。布局、卡片高度、文字和图片保留。范围仅用户标出的区域，下方六项核心能力详情保留。
 
 浏览器实际点击能力栏与场景卡片后，dialog均为关闭状态；标注区域交互按钮及data-capability数量为0，六个静态列表项和四个article均可见，光标为default，无横向溢出。实际截图 `docs/design-evidence/static-home-cards.jpg` 已查看。`npm run check`、`npm run build`、`git diff --check`通过。此为语义及交互调整，无新增素材；final result仍为passed。
+
+## 后续交互修正：核心能力也静态展示（2026-11-18）
+
+用户补充来源 `docs/design-evidence/static-core-cards-user-markup.png`。六张核心能力卡片也改为静态article，右侧箭头和悬停反馈移除；首页已无data-capability或dialog，删除不再使用的home.js和详情样式。
+
+浏览器实际点击第一张卡片后，页面无弹层；静态article数量6、dialog/触发属性/箭头数量均0，光标default。原158px卡片高度和三列两行布局正常，横向不溢出；截图 `docs/design-evidence/static-core-cards.jpg`已查看。`npm run check`、`npm run build`、`git diff --check`通过。final result保持passed。

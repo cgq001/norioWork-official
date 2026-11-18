@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
-for (const path of ['assets/site.js', 'assets/home.js', 'scripts/build.mjs', 'scripts/serve.mjs', 'scripts/deploy.mjs']) {
+for (const path of ['assets/site.js', 'scripts/build.mjs', 'scripts/serve.mjs', 'scripts/deploy.mjs']) {
   const result = spawnSync(process.execPath, ['--check', path], { cwd: root, stdio: 'inherit' });
   if (result.status !== 0) process.exit(1);
 }

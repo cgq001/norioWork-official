@@ -42,7 +42,7 @@ if (base) {
 }
 // Content-addressed resources prevent new HTML from reusing a previous release's CSS/JS.
 const assetMap = new Map();
-for (const name of ['styles.css', 'official.css', 'home.css', 'home.js', 'site.js', 'brand.webp', 'app-icon.png', 'product/ppt-ai.webp', 'product/excel-ai.webp', 'product/smart-ai.webp']) {
+for (const name of ['styles.css', 'official.css', 'home.css', 'site.js', 'brand.webp', 'app-icon.png', 'product/ppt-ai.webp', 'product/excel-ai.webp', 'product/smart-ai.webp']) {
   const content = await readFile(resolve(output, 'assets', name));
   const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
   const dot = name.lastIndexOf('.');
