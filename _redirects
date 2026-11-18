@@ -1,2 +1,4 @@
-/download.html /download/ 301
+/download https://gitcode.com/cgq2100/norioWork/releases/latest 302
+/download/ https://gitcode.com/cgq2100/norioWork/releases/latest 302
+/download.html https://gitcode.com/cgq2100/norioWork/releases/latest 302
 /docs.html /docs/ 301

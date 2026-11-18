@@ -4,21 +4,25 @@
 
 原生 HTML、CSS、JavaScript 静态站点，无前端框架、无第三方运行时依赖。
 
+## 当前下载方式（2026-11-18）
+
+用户已取消独立下载页和导航中的「下载」。首页所有下载入口直接前往 `https://gitcode.com/cgq2100/norioWork/releases/latest`。顶部右侧、首屏、系统提示、底部与功能详情中的入口使用同一公开地址，无需JavaScript，也不写死版本。旧 `/download`、`/download/`、`/download.html` 通过302跳转兼容；本地服务与生产 `_redirects` 使用相同规则。下文2026-11-17的下载页设计章节仅为历史记录。
+
 ## 页面与内容
 
 - `/`：按 2026-11-17 用户选定的蓝白参考图实现：左文右图首屏、六项能力快捷条、四个办公灵感场景、六项核心能力、四项产品优势、四类适用人群、系统下载区和常见问题。场景卡片和能力按钮打开功能详情弹层；FAQ 使用原生 details，支持键盘展开。
-- `/download/`：蓝白下载页，居中标题、原创小蓝主视觉和Windows/macOS双入口。Windows使用固定latest发行页，macOS待发布时打开状态弹层。「其他版本与平台」显示三个系统的安装包，支持左右箭头、Home、End切换与Escape关闭。
+- `/download/`：旧地址兼容跳转，不再存在独立页面，也不进入站点地图。
 - `/changelog/`：左侧版本目录，右侧更新内容，随滚动高亮当前版本；以公开发布记录为准。
 - `/docs/`：独立文档页，包含模型配置、编辑器、资料管理、技能、通道、定时任务和常见问题。
 - `404.html`：真正的 404 页面，不使用 SPA 全站回退。
 
 当前首页以用户 2026-11-17 新增内容的图片为视觉基准，参考存于 `docs/design-evidence/extended-home-reference.png`。采用蓝白配色和紧凑布局，后续按用户反馈增大下半页高度与留白，1024px 宽时整页约2112px高；平板与手机调整为上下主视觉、两列场景和三列或两列能力。之前的 Octop 与暖色方案仅保留历史记录。
 
-首页独立加载 `assets/home.css` 与 `assets/home.js`；下载页复用首页品牌样式，额外加载 `assets/download-page.css` 和更新的 `download.js`，其他内页保留已有样式。构建为新旧页面使用的 CSS 和 JavaScript 生成内容哈希，避免更新后使用旧代码。七张原创宣传与场景配图位于 `assets/campaign/`，完整提示词、模式与原图路径见 `docs/design-evidence/blue-home-assets.md`。图标沿用既有产品资产与 Lucide，照片和插画为 AI 功能示意，实际识别、生成与编辑在客户端完成。
+首页独立加载 `assets/home.css` 与 `assets/home.js`；独立下载页及其CSS、脚本已移除，原实现存于内部 `docs/design-evidence/retired-download/`，其他内页保留已有样式。构建为新旧页面使用的 CSS 和 JavaScript 生成内容哈希，避免更新后使用旧代码。七张原创宣传与场景配图位于 `assets/campaign/`，完整提示词、模式与原图路径见 `docs/design-evidence/blue-home-assets.md`。图标沿用既有产品资产与 Lucide，照片和插画为 AI 功能示意，实际识别、生成与编辑在客户端完成。
 
-新增四个人群角色位于 `assets/campaign/audience-*.webp`，完整提示词、生成模式与原始路径见 `docs/design-evidence/extended-home-assets.md`。首页平台入口使用 `/download/?platform=windows` 或 `macos`；Windows展示主下载入口，macOS/Linux直接打开对应状态弹层，未知值回退Windows。macOS 尚未发布，首页与下载页明确显示待发布。
+新增四个人群角色位于 `assets/campaign/audience-*.webp`，完整提示词、生成模式与原始路径见 `docs/design-evidence/extended-home-assets.md`。首页所有可点击的下载和系统入口均直达GitCode最新正式版。macOS 尚未发布，首页与下载页明确显示待发布。
 
-完整同图对照、字体与响应式验收见项目根目录 `design-qa.md`。静态官网不调用模型、不上传用户材料；能力卡片只展示说明。导航保留首页、下载，主流程仍进入独立下载页，再由固定的 GitCode latest 入口获取最新正式版。
+完整同图对照、字体与响应式验收见项目根目录 `design-qa.md`。静态官网不调用模型、不上传用户材料；能力卡片只展示说明。导航只保留首页；所有下载按钮直接进入固定的GitCode latest发行页获取最新正式版。
 
 下载入口已经改为 GitCode 固定 latest 正式版发行页，不在官网写死版本号、日期或大小；具体说明见下文「下载配置」。更新日志保留已公开发布的历史记录。
 
@@ -40,15 +44,13 @@ npm run preview     # 本地检查 dist/ 构建结果
 
 所有脚本都从项目根目录执行；不会修改源文件。`build` 每次重新生成 `dist/`。
 
-## 下载配置
+## 下载入口维护
 
-当前 Windows 主按钮固定指向 `https://gitcode.com/cgq2100/norioWork/releases/latest`，由 GitCode 跳转到最新正式发行版页面，访客在该页面选择安装包。以后发布新的正式版本无需改官网链接。预发布不视为最新正式版；2026-11-16 实测入口跳转到 v0.8.12，v0.8.15 在 GitCode 中标为预发布。
+当前分发地址固定为 `https://gitcode.com/cgq2100/norioWork/releases/latest`。由GitCode选择最新正式版，官网不展示可能过期的版本号、日期和文件大小；发布新版无需改链接。预发布是否纳入latest由GitCode控制。
 
-当前不在官网写死版本号、发布日期和文件大小，避免新版本发布后信息过期。`version`、`publishedAt` 保留 `null`，Windows 配置使用固定 latest 地址与发行页下载说明；无 JavaScript 时也指向同一 GitCode 入口。下方的历史版本链接仍指向完整发行列表。无需凭证、浏览器请求 API 或服务端解析。
+首页、产品指南与更新日志中的下载链接均为原生HTTPS链接。没有接口凭证或运行时解析；不再使用已移除的 `assets/download-config.js`。若未来更换分发平台，需要同步修改公开HTML和 `_redirects` 中的目标地址。macOS/Linux尚未发布的提示保留，以实际发行页为准。
 
-下载配置位于 `assets/download-config.js`。当前 latest 模式无需填写版本号、日期和大小；仅在需要固定某个已验证版本时填写这些元数据及安装包 HTTPS 直链。未发布的包保留 `null`，页面会显示“待发布”，不生成无效下载链接。系统标签用于展示未来下载位置，不代表所有平台已发布。
-
-安装包应放在产品的发布平台或 Cloudflare R2 等文件存储，不建议直接提交到网站 Git 仓库。仅使用公开安装包 URL，不要填凭证、私有签名密钥或其他秘密。正式发布前核对平台名称、架构与文件链接。
+旧下载页、样式及脚本仅在 `docs/design-evidence/retired-download/` 存档，不进入构建。生产构建不再复制下载页面，也不生成其canonical或站点地图条目。本地服务支持 `_redirects` 中的精确路径规则，修改规则后需重启服务。
 
 ## Cloudflare Pages：Git 自动部署（推荐）
 
@@ -147,3 +149,11 @@ npm run deploy
 ## 页头统一修正（2026-11-17）
 
 首页和下载页现在直接使用同一套页头HTML结构与 `home.css` 规则，只切换 `aria-current`。下载页CSS仅定义正文，不再覆盖页头。统一54px高度、1236px最大容器宽度、36px品牌图标、16px桌面导航以及右侧立即下载按钮；所有断点复用首页设置。桌面与手机实际测量一致，完整证据见 `docs/design-evidence/shared-header-metrics.json` 与根目录验收报告。
+
+## 首页整体加高（2026-11-18）
+
+按用户最新反馈，整个首页首屏与卡片统一增加高度和上下留白：首屏450px，能力快捷栏80px；1280px下场景卡片约307px、功能158px、优势160px、人群172px、下载区216px、系统卡片与FAQ82px。手机使用对应较高尺寸并保持自然换行。页头与下载行为不变。验收见根目录 `design-qa.md`，截图和高度记录使用 `taller-home-` 前缀。
+
+## 指定区域取消点击（2026-11-18）
+
+用户红框内的六项能力栏和四张场景卡片已改为静态HTML（列表项与article），移除data-capability、弹层属性、按钮焦点、手型光标与悬停浮动。下方核心能力的原有详情交互不受影响。点击实测不再打开dialog，截图 `docs/design-evidence/static-home-cards.jpg`。

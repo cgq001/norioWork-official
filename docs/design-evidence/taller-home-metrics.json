@@ -1,0 +1,45 @@
+{
+  "allDownloadsDirect": true,
+  "blocks": [
+    {
+      "height": 450,
+      "selector": ".office-hero"
+    },
+    {
+      "height": 80,
+      "selector": ".product-strip"
+    },
+    {
+      "height": 307,
+      "selector": ".scene-card"
+    },
+    {
+      "height": 158,
+      "selector": ".capability-card"
+    },
+    {
+      "height": 160,
+      "selector": ".why-card"
+    },
+    {
+      "height": 172,
+      "selector": ".audience-card"
+    },
+    {
+      "height": 216,
+      "selector": ".download-band"
+    },
+    {
+      "height": 82,
+      "selector": ".os-option"
+    },
+    {
+      "height": 82,
+      "selector": ".faq-grid summary"
+    }
+  ],
+  "height": 720,
+  "overflow": false,
+  "pageHeight": 2510,
+  "width": 1280
+}

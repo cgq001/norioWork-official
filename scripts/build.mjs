@@ -18,11 +18,11 @@ if (siteInput) {
 }
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
-for (const path of ['index.html', 'download', 'changelog', 'assets', '_headers', '_redirects', '404.html']) await cp(resolve(root, path), resolve(output, path), { recursive: true });
+for (const path of ['index.html', 'changelog', 'assets', '_headers', '_redirects', '404.html']) await cp(resolve(root, path), resolve(output, path), { recursive: true });
 // 产品指南需要发布；开发记录和竞品对照截图只留在源码，避免进入官网产物。
 await mkdir(resolve(output, 'docs'), { recursive: true });
 await cp(resolve(root, 'docs/index.html'), resolve(output, 'docs/index.html'));
-const pages = ['/', '/download/', '/docs/', '/changelog/'];
+const pages = ['/', '/docs/', '/changelog/'];
 if (base) {
   for (const path of pages) {
     const target = resolve(output, '.' + path, 'index.html');
@@ -42,7 +42,7 @@ if (base) {
 }
 // Content-addressed resources prevent new HTML from reusing a previous release's CSS/JS.
 const assetMap = new Map();
-for (const name of ['styles.css', 'official.css', 'home.css', 'download-page.css', 'home.js', 'site.js', 'download.js', 'download-config.js', 'brand.webp', 'app-icon.png', 'product/ppt-ai.webp', 'product/excel-ai.webp', 'product/smart-ai.webp']) {
+for (const name of ['styles.css', 'official.css', 'home.css', 'home.js', 'site.js', 'brand.webp', 'app-icon.png', 'product/ppt-ai.webp', 'product/excel-ai.webp', 'product/smart-ai.webp']) {
   const content = await readFile(resolve(output, 'assets', name));
   const hash = createHash('sha256').update(content).digest('hex').slice(0, 12);
   const dot = name.lastIndexOf('.');
@@ -50,7 +50,7 @@ for (const name of ['styles.css', 'official.css', 'home.css', 'download-page.css
   await writeFile(resolve(output, 'assets', versioned), content);
   assetMap.set('/assets/' + name, '/assets/' + versioned);
 }
-for (const file of ['index.html', 'download/index.html', 'docs/index.html', 'changelog/index.html', '404.html']) {
+for (const file of ['index.html', 'docs/index.html', 'changelog/index.html', '404.html']) {
   const target = resolve(output, file);
   let html = await readFile(target, 'utf8');
   for (const [original, versioned] of assetMap) html = html.replaceAll(original, versioned);
